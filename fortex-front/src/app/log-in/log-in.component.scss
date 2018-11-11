@@ -1,0 +1,13 @@
+.login-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-card > * {
+  width: 100%;
+  max-width: 400px;
+}
+.login-button-row button,
+.login-button-row a {
+  margin-right: 8px;
+}
