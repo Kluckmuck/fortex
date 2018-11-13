@@ -1,13 +1,14 @@
 <mat-card class="login-card">
   <mat-form-field>
-    <input matInput placeholder="Username">
+    <input [(ngModel)]="userName" matInput placeholder="Username">
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Password">
+    <input type="password" [(ngModel)]="password" matInput placeholder="Password">
   </mat-form-field>
 
   <div class="login-button-row">
-    <a mat-raised-button routerLink=".">Login</a>
+    <a (click)="login()" mat-raised-button routerLink=".">Login</a>
+    <a mat-raised-button routerLink=".">Reset Password</a>
   </div>
 
 </mat-card>
