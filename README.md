@@ -1,2 +1,0 @@
-# fortex
-Älg IT project
