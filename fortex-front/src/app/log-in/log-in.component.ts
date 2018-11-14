@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../api.service';
+import { LoginUser } from '../models/LoginUser';
 
 @Component({
   selector: 'app-log-in',
@@ -7,12 +9,13 @@ import { Component } from '@angular/core';
 })
 export class LogInComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private api: ApiService
+  ) { }
 
-  userName: string = '';
-  password: string = '';
+  user = new LoginUser('', '');
 
   login() {
-    console.log(this.userName + this.password);
+    return this.api.login(this.user);
   }
 }
