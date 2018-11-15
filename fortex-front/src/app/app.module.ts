@@ -17,6 +17,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatInputModule,
     MatButtonModule,
     MatToolbarModule,
+    MatGridListModule,
     FormsModule,
     HttpModule
   ],

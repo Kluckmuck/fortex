@@ -1,6 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-nav-bar></app-nav-bar>
+<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile>
+    <app-log-in></app-log-in>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
 <div>
-  <app-log-in></app-log-in>
-  <router-outlet></router-outlet>
 </div>
+<router-outlet></router-outlet>
