@@ -1,14 +1,20 @@
-<mat-card class="login-card">
-  <mat-form-field>
-    <input [(ngModel)]="user.userName" matInput placeholder="Username">
-  </mat-form-field>
-  <mat-form-field>
-    <input type="password" [(ngModel)]="user.password" matInput placeholder="Password">
-  </mat-form-field>
+<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="login-card">
+      <mat-form-field>
+        <input [(ngModel)]="user.userName" matInput placeholder="Username">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" [(ngModel)]="user.password" matInput placeholder="Password">
+      </mat-form-field>
 
-  <div class="login-button-row">
-    <a (click)="login()" mat-raised-button routerLink=".">Login</a>
-    <a mat-raised-button routerLink=".">Reset Password</a>
-  </div>
+      <div class="login-button-row">
+        <a (click)="login()" mat-raised-button routerLink=".">Login</a>
+        <a mat-raised-button routerLink=".">Reset Password</a>
+      </div>
 
-</mat-card>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
