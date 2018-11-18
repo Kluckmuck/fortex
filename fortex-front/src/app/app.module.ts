@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ApiService } from './api.service';
+import { UserPortalComponent } from './user-portal/user-portal.component';
 
 //Material
 import {MatCardModule} from '@angular/material/card';
@@ -23,7 +24,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
   declarations: [
     AppComponent,
     LogInComponent,
-    NavBarComponent
+    NavBarComponent,
+    UserPortalComponent
   ],
   imports: [
     BrowserModule,
