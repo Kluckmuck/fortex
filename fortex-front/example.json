@@ -1,0 +1,29 @@
+{
+  "id": 1,
+  "name": "Betong",
+  "owner": 27,
+  "elements": [
+    { "name": "Adress", "type": "string", "value": "Vasagatan 27" },
+    { "name": "Price", "type": "int", "value": "5000" },
+    { "name": "Leverantörsadress", "type": "string", "value": "Skånegatan 17" },
+    { "name": "Storlek", "type": "string", "value": "Dubbel" }
+  ]
+}
+
+{
+  "id": 1,
+  "name": "Betong",
+  "owner": 27,
+  "date": "DATE",
+  "elements_string": [
+    { "name": "Adress", "value": "Vasagatan 27" },
+    { "name": "Leverantörsadress", "value": "Skånegatan 17" },
+    { "name": "Storlek", "value": "Dubbel" }
+  ],
+  "elements_int": [
+    { "name": "Price", "value": "5000" },
+  ],
+  "elements_date": [
+    { "name": "Delivered", "value": "DATE   " },
+  ]
+}

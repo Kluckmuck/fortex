@@ -11,6 +11,7 @@ import { LogInComponent } from './log-in/log-in.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ApiService } from './api.service';
 import { UserPortalComponent } from './user-portal/user-portal.component';
+import { WayBillCreateComponent } from './way-bill-create/way-bill-create.component';
 
 //Material
 import {MatCardModule} from '@angular/material/card';
@@ -19,13 +20,15 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
     NavBarComponent,
-    UserPortalComponent
+    UserPortalComponent,
+    WayBillCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatButtonModule,
     MatToolbarModule,
     MatGridListModule,
+    MatSelectModule,
     FormsModule,
     HttpModule
   ],

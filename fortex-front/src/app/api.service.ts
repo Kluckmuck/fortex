@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { environment } from '../environments/environment';
-import { LoginUser } from '../models/LoginUser';
+import { LoginUser } from './models/LoginUser';
 
 const API_URL = environment.apiUrl;
 

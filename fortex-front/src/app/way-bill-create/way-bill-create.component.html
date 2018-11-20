@@ -1,0 +1,25 @@
+<mat-card class="waybillcreate-card">
+    <mat-form-field>
+      <mat-select placeholder="Choose your waybill" [(ngModel)]="selectedValue" name="food">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p> Selected food: {{selectedValue}} </p>
+    <h4>native html select</h4>
+    <mat-form-field>
+      <select matNativeControl placeholder="Favorite car" [(ngModel)]="selectedCar" name="car">
+        <option value="" disabled selected></option>
+        <option *ngFor="let car of cars" [value]="car.value">
+          {{car.viewValue}}
+        </option>
+      </select>
+    </mat-form-field>
+    <p> Selected car: {{selectedCar}} </p>
+
+  <div class="waybillcreate-row">
+    <a mat-raised-button routerLink="/user-portal" routerLinkActive="active">Start</a>
+  </div>
+
+</mat-card>
