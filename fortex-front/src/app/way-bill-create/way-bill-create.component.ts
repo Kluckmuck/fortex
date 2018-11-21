@@ -25,13 +25,6 @@ export class WayBillCreateComponent implements OnInit {
     {value: 'tacos-2', viewValue: 'Tacos'}
   ];
 
-  cars: Car[] = [
-    {value: 'volvo', viewValue: 'Volvo'},
-    {value: 'saab', viewValue: 'Saab'},
-    {value: 'mercedes', viewValue: 'Mercedes'}
-  ];
-
-
   constructor() { }
   ngOnInit() {
   }
