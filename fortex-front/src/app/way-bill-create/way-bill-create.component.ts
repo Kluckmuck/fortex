@@ -31,6 +31,7 @@ export class WayBillCreateComponent implements OnInit {
     {value: 'mercedes', viewValue: 'Mercedes'}
   ];
 
+
   constructor() { }
   ngOnInit() {
   }
