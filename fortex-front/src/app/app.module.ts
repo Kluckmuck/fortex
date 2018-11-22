@@ -24,6 +24,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatListModule} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
+import { WayBillDetailComponent } from './way-bill-detail/way-bill-detail.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {MatDividerModule} from '@angular/material/divider';
     NavBarComponent,
     UserPortalComponent,
     WayBillCreateComponent,
-    WayBillListComponent
+    WayBillListComponent,
+    WayBillDetailComponent
   ],
   imports: [
     BrowserModule,

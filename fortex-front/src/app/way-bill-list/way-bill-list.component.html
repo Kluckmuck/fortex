@@ -1,15 +1,19 @@
 <mat-card class="waybill-list-card">
-  <mat-card-title>Waybills</mat-card-title>
-  <mat-card-subtitle class="up-subtitle">Recent:</mat-card-subtitle>
-    <mat-list>
-    <mat-list-item *ngFor="let waybill of waybills; last as last">
+  <mat-toolbar>
+    <span>Waybills</span>
+  </mat-toolbar>
+    <mat-selection-list>
+    <mat-list-option *ngFor="let waybill of waybills; last as last"
+      (click)="onSelect(waybill)"
+      [class.selected]="waybill === selectedWaybill">
       <h4 mat-line>{{waybill.name}}</h4>
       <p mat-line> {{waybill.date | date}} </p>
       <p mat-line mat-subheader> {{waybill.description}} </p>
-      <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
-    </mat-list-item>
-  </mat-list>
+    </mat-list-option>
+  </mat-selection-list>
+  <!-- <app-way-bill-detail [waybill]="selectedWaybill"></app-way-bill-detail>-->
   <div class="up-button-row">
-    <a mat-raised-button routerLink="/user-portal" routerLinkActive="active">Get More</a>
+    <a mat-raised-button routerLink="/user-portal" routerLinkActive="active">Open</a>
+    <a mat-raised-button routerLink="/user-portal" routerLinkActive="active">Send</a>
   </div>
 </mat-card>

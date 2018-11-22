@@ -8,10 +8,14 @@ import { TinyWaybill } from '../models/TinyWaybill';
 })
 export class WayBillListComponent implements OnInit {
 
+  selectedWaybill: TinyWaybill;
+  onSelect(waybill: TinyWaybill): void {
+    this.selectedWaybill = waybill;
+  }
   waybills: TinyWaybill[] = [
     {
       name: 'Photos',
-      date: new Date('1/1/16'),
+      date: new Date("1/1/16"),
       description: 'Skanska vid Lagergatan 29, Kalle Svenssoon'
     },
     {
