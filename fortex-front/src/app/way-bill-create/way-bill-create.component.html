@@ -1,9 +1,10 @@
 <mat-card class="waybillcreate-card">
-  <mat-card-title>Quickstart</mat-card-title>
-  <mat-card-subtitle class="up-subtitle">Choose your waybill</mat-card-subtitle>
+  <mat-toolbar>
+    <span>Quickstart</span>
+  </mat-toolbar>
   <form class="up-form">
     <mat-form-field class="up-full-width">
-      <mat-select value="selectedValue" [(ngModel)]="selectedValue" name="food">
+      <mat-select placeholder="Form" value="selectedValue" [(ngModel)]="selectedValue" name="food">
         <mat-option *ngFor="let food of foods" [value]="food.value">
           {{food.viewValue}}
         </mat-option>
