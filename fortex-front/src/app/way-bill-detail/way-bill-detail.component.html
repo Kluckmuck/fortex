@@ -1,6 +1,33 @@
-<div *ngIf="waybill">
+<mat-card class="waybillcreate-card">
+  <mat-toolbar>
+    <span>Detail</span>
+  </mat-toolbar>
 
-  <h2>{{waybill.name}} Details</h2>
-  <div><span>Date: </span>{{waybill.date | date}}</div>
+  <mat-card *ngIf="waybill" class="waybill-list-card">
+      <mat-list>
+        <mat-list-item>
+          <h4 mat-line>ID: {{waybill.id}}</h4>
+        </mat-list-item>
+      <mat-list-item>
+        <h4 mat-line>Name: {{waybill.name}}</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <p mat-line>Date: {{waybill.date | date}} </p>
+      </mat-list-item>
+      <mat-list-item>
+        <h4 mat-line>Employee ID: {{waybill.employee}}</h4>
+      </mat-list-item>
+      <mat-list *ngFor="let string of waybill.elementString">
+        <mat-list-item>
+          <h4 mat-line>{{string.name}}: {{string.value}}</h4>
+        </mat-list-item>
+      </mat-list>
+    </mat-list>
+    <div class="up-button-row">
+      <a mat-raised-button routerLink="/user-portal" routerLinkActive="active">New</a>
+      <a mat-raised-button routerLink="/user-portal" routerLinkActive="active">Send</a>
+      <a mat-raised-button routerLink="/user-portal" routerLinkActive="active">Back</a>
+    </div>
+  </mat-card>
 
-</div>
+</mat-card>

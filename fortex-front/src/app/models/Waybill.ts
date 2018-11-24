@@ -6,7 +6,6 @@ export class Waybill {
     public employee: number,
     public name: string,
     public date: Date,
-    public description: string,
     public elementString: ElementString[]
   ) { }
 }
