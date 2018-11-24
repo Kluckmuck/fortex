@@ -1,0 +1,19 @@
+<mat-card class="waybillcreate-card">
+  <mat-toolbar>
+    <span>Quickstart</span>
+  </mat-toolbar>
+  <form class="up-form">
+    <mat-form-field class="up-full-width">
+      <mat-select placeholder="Form" value="selectedValue" [(ngModel)]="selectedValue" name="food">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  <div class="up-button-row">
+    <a mat-raised-button routerLink="/user-portal" routerLinkActive="active">Start</a>
+  </div>
+  </form>
+
+</mat-card>

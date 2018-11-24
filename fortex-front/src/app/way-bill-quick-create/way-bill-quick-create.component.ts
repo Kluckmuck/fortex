@@ -6,11 +6,11 @@ export interface Food {
 }
 
 @Component({
-  selector: 'app-way-bill-create',
-  templateUrl: './way-bill-create.component.html',
-  styleUrls: ['./way-bill-create.component.scss']
+  selector: 'app-way-bill-quick-create',
+  templateUrl: './way-bill-quick-create.component.html',
+  styleUrls: ['./way-bill-quick-create.component.scss']
 })
-export class WayBillCreateComponent implements OnInit {
+export class WayBillQuickCreateComponent implements OnInit {
   selectedValue: string;
   selectedCar: string;
 
