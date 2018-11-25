@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Uzer {
 
     @Id
     @Column(name = "id")
