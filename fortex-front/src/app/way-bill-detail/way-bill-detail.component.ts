@@ -30,6 +30,5 @@ export class WayBillDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.api.getWayBill(id)
     .subscribe(waybill => this.waybill = waybill)
-    console.log(this.waybill);
   }
 }

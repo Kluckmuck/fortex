@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
-export interface Food {
-  value: string;
-  viewValue: string;
-}
+import { TinyForm } from '../models/TinyForm';
 
 @Component({
   selector: 'app-way-bill-quick-create',
@@ -12,16 +10,18 @@ export interface Food {
 })
 export class WayBillQuickCreateComponent implements OnInit {
   selectedValue: string;
-  selectedCar: string;
+  formList: TinyForm[];
 
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
+  constructor(
+    private api: ApiService
+  ) { }
 
-  constructor() { }
   ngOnInit() {
+    this.getWaybillFormList();
   }
 
+  getWaybillFormList(): void {
+    this.api.getWaybillFormList()
+    .subscribe(formList => this.formList = formList)
+  }
 }
