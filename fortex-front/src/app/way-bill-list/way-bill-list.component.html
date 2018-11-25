@@ -5,7 +5,8 @@
     <mat-selection-list>
     <mat-list-option *ngFor="let waybill of waybills; last as last"
       (click)="onSelect(waybill)"
-      [class.selected]="waybill === selectedWaybill">
+      [class.selected]="waybill === selectedWaybill"
+      routerLink="/waybill/{{waybill.id}}">
       <h4 mat-line>{{waybill.name}}</h4>
       <p mat-line> {{waybill.date | date}} </p>
       <p mat-line mat-subheader> {{waybill.description}} </p>

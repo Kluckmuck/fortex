@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule }    from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 //Components
@@ -13,6 +13,8 @@ import { ApiService } from './api.service';
 import { UserPortalComponent } from './user-portal/user-portal.component';
 import { WayBillCreateComponent } from './way-bill-create/way-bill-create.component';
 import { WayBillListComponent } from './way-bill-list/way-bill-list.component';
+import { WayBillDetailComponent } from './way-bill-detail/way-bill-detail.component';
+import { WayBillQuickCreateComponent } from './way-bill-quick-create/way-bill-quick-create.component';
 
 //Material
 import {MatCardModule} from '@angular/material/card';
@@ -24,7 +26,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatListModule} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
-import { WayBillDetailComponent } from './way-bill-detail/way-bill-detail.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { WayBillDetailComponent } from './way-bill-detail/way-bill-detail.compon
     UserPortalComponent,
     WayBillCreateComponent,
     WayBillListComponent,
-    WayBillDetailComponent
+    WayBillDetailComponent,
+    WayBillQuickCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,7 @@ import { WayBillDetailComponent } from './way-bill-detail/way-bill-detail.compon
     MatListModule,
     MatDividerModule,
     FormsModule,
-    HttpModule
+    HttpClientModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
