@@ -25,8 +25,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatListModule} from '@angular/material/list';
-import {MatDividerModule} from '@angular/material/divider';
-
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatGridListModule,
     MatSelectModule,
     MatListModule,
-    MatDividerModule,
+    MatIconModule,
+    MatTooltipModule,
     FormsModule,
     HttpClientModule
   ],

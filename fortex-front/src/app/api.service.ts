@@ -25,9 +25,15 @@ export class ApiService {
   }
 
   //API: GET Waybill
-  getWayBill(id: number): Observable<Waybill> {
+  getWaybill(id: number): Observable<Waybill> {
     const url = `${API_URL}/waybills/${id}`;
     return this.http.get<Waybill>(url);
+  }
+
+  //API: GET TinWaybills
+  getTinyWaybillList(): Observable<TinyWaybill[]> {
+    const url = `${API_URL}/waybills`;
+    return this.http.get<TinyWaybill[]>(url);
   }
 
   //API: GET WaybillForms
