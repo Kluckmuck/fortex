@@ -30,10 +30,16 @@ export class ApiService {
     return this.http.get<Waybill>(url);
   }
 
-  //API: GET TinWaybills
+  //API: GET TinyWaybills
   getTinyWaybillList(): Observable<TinyWaybill[]> {
     const url = `${API_URL}/waybills`;
     return this.http.get<TinyWaybill[]>(url);
+  }
+
+  //API: GET Waybills
+  getWaybillList(): Observable<Waybill[]> {
+    const url = `${API_URL}/waybills`;
+    return this.http.get<Waybill[]>(url);
   }
 
   //API: GET WaybillForms

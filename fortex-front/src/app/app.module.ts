@@ -27,6 +27,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { WayBillHistoryComponent } from './way-bill-history/way-bill-history.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     WayBillCreateComponent,
     WayBillListComponent,
     WayBillDetailComponent,
-    WayBillQuickCreateComponent
+    WayBillQuickCreateComponent,
+    WayBillHistoryComponent
   ],
   imports: [
     BrowserModule,
