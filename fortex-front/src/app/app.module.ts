@@ -15,6 +15,7 @@ import { WayBillCreateComponent } from './way-bill-create/way-bill-create.compon
 import { WayBillListComponent } from './way-bill-list/way-bill-list.component';
 import { WayBillDetailComponent } from './way-bill-detail/way-bill-detail.component';
 import { WayBillQuickCreateComponent } from './way-bill-quick-create/way-bill-quick-create.component';
+import { WayBillHistoryComponent } from './way-bill-history/way-bill-history.component';
 
 //Material
 import {MatCardModule} from '@angular/material/card';
@@ -27,7 +28,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { WayBillHistoryComponent } from './way-bill-history/way-bill-history.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { WayBillHistoryComponent } from './way-bill-history/way-bill-history.com
     MatListModule,
     MatIconModule,
     MatTooltipModule,
+    MatTableModule,
+    MatSortModule,
     FormsModule,
     HttpClientModule
   ],

@@ -8,11 +8,8 @@ import { Waybill } from '../models/Waybill';
   styleUrls: ['./way-bill-history.component.scss']
 })
 export class WayBillHistoryComponent implements OnInit {
-  selectedWaybill: Waybill;
   waybills: Waybill[] = [];
-  onSelect(waybill: Waybill): void {
-    this.selectedWaybill = waybill;
-  }
+  columnsToDisplay = ['ID', 'Employee', 'Name', 'Date'];
 
   constructor(
     private api: ApiService
@@ -24,6 +21,6 @@ export class WayBillHistoryComponent implements OnInit {
 
   getWaybillList(): void {
     this.api.getWaybillList()
-    .subscribe(waybills => this.waybills = waybills)
+    .subscribe(waybills => this.waybills = waybills);
   }
 }
