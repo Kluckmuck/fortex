@@ -4,9 +4,9 @@
   </mat-toolbar>
   <form class="up-form">
     <mat-form-field class="up-full-width">
-      <mat-select placeholder="Form" value="selectedValue" [(ngModel)]="selectedValue" name="food">
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
+      <mat-select placeholder="Form" value="selectedValue" [(ngModel)]="selectedValue" name="formList">
+        <mat-option *ngFor="let form of formList" [value]="form.name">
+          {{form.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>

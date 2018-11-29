@@ -15,6 +15,7 @@ import { WayBillCreateComponent } from './way-bill-create/way-bill-create.compon
 import { WayBillListComponent } from './way-bill-list/way-bill-list.component';
 import { WayBillDetailComponent } from './way-bill-detail/way-bill-detail.component';
 import { WayBillQuickCreateComponent } from './way-bill-quick-create/way-bill-quick-create.component';
+import { WayBillHistoryComponent } from './way-bill-history/way-bill-history.component';
 
 //Material
 import {MatCardModule} from '@angular/material/card';
@@ -25,8 +26,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatListModule} from '@angular/material/list';
-import {MatDividerModule} from '@angular/material/divider';
-
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import {MatDividerModule} from '@angular/material/divider';
     WayBillCreateComponent,
     WayBillListComponent,
     WayBillDetailComponent,
-    WayBillQuickCreateComponent
+    WayBillQuickCreateComponent,
+    WayBillHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,10 @@ import {MatDividerModule} from '@angular/material/divider';
     MatGridListModule,
     MatSelectModule,
     MatListModule,
-    MatDividerModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatSortModule,
     FormsModule,
     HttpClientModule
   ],

@@ -2,10 +2,13 @@
   <mat-grid-tile></mat-grid-tile>
   <mat-grid-tile>
     <mat-card class="login-card">
-      <mat-form-field>
+      <mat-toolbar>
+        <span>Login</span>
+      </mat-toolbar>
+      <mat-form-field class="up-full-width">
         <input [(ngModel)]="user.userName" matInput placeholder="Username" (keyup.enter)="login()">
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="up-full-width">
         <input type="password" [(ngModel)]="user.password" matInput placeholder="Password" (keyup.enter)="login()">
       </mat-form-field>
 

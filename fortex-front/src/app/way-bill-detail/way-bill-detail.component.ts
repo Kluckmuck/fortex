@@ -23,13 +23,12 @@ export class WayBillDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getWayBill();
+    this.getWaybill();
   }
 
-  getWayBill(): void {
+  getWaybill(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.api.getWayBill(id)
+    this.api.getWaybill(id)
     .subscribe(waybill => this.waybill = waybill)
-    console.log(this.waybill);
   }
 }

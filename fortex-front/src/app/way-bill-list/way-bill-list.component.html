@@ -2,19 +2,19 @@
   <mat-toolbar>
     <span>Waybills</span>
   </mat-toolbar>
-    <mat-selection-list>
-    <mat-list-option *ngFor="let waybill of waybills; last as last"
+  <mat-nav-list>
+    <mat-list-item *ngFor="let waybill of waybills | slice:0:5"
       (click)="onSelect(waybill)"
       [class.selected]="waybill === selectedWaybill"
       routerLink="/waybill/{{waybill.id}}">
       <h4 mat-line>{{waybill.name}}</h4>
-      <p mat-line> {{waybill.date | date}} </p>
-      <p mat-line mat-subheader> {{waybill.description}} </p>
-    </mat-list-option>
-  </mat-selection-list>
+      <h3 mat-line>{{waybill.date | date}}</h3>
+      <i mat-list-icon-right class="material-icons" matTooltip="See details">find_in_page</i>
+      <i mat-list-icon-right class="material-icons" matTooltip="Send waybill" routerLink="/login">send</i>
+    </mat-list-item>
+  </mat-nav-list>
   <!-- <app-way-bill-detail [waybill]="selectedWaybill"></app-way-bill-detail>-->
   <div class="up-button-row">
-    <a mat-raised-button routerLink="/user-portal" routerLinkActive="active">Open</a>
-    <a mat-raised-button routerLink="/user-portal" routerLinkActive="active">Send</a>
+    <a mat-raised-button routerLink="/history" routerLinkActive="active">See more</a>
   </div>
 </mat-card>
