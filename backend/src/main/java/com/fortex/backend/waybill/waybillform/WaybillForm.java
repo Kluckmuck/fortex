@@ -31,16 +31,13 @@ public class WaybillForm {
     private Date date;
     private Long orgId;
 
-    @ElementCollection
-    @CollectionTable(name = "waybill_element_date", joinColumns = @JoinColumn(name = "elementdate_id"))
+    @OneToMany(mappedBy="waybillFormDate")
     private Set<ElementDate>  elementDate;
 
-    @ElementCollection
-    @CollectionTable(name = "waybill_element_string", joinColumns = @JoinColumn(name = "elementstring_id"))
+    @OneToMany(mappedBy="waybillFormString")
     private Set<ElementString> elementString;
     
-    @ElementCollection
-    @CollectionTable(name = "waybill_element_double", joinColumns = @JoinColumn(name = "elementdouble_id"))
+    @OneToMany(mappedBy="waybillFormDouble")
     private Set<ElementDouble> elementDouble;
 
     
