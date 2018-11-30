@@ -1,4 +1,4 @@
-import { ElementString } from './ElementString';
+import { ElementStringValue } from './ElementStringValue';
 
 export class Waybill {
   constructor(
@@ -6,6 +6,6 @@ export class Waybill {
     public employee: number,
     public name: string,
     public date: Date,
-    public elementString: ElementString[]
+    public elementString: ElementStringValue[]
   ) { }
 }

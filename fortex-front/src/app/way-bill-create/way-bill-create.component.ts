@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { Form } from '../models/Form';
 
-export interface Food {
-  value: string;
-  viewValue: string;
-}
 
 @Component({
   selector: 'app-way-bill-create',
@@ -11,16 +9,11 @@ export interface Food {
   styleUrls: ['./way-bill-create.component.scss']
 })
 export class WayBillCreateComponent implements OnInit {
-  selectedValue: string;
-  selectedCar: string;
 
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
-
-  constructor() { }
+  constructor(
+    private api: ApiService
+  ) { }
+  
   ngOnInit() {
   }
 

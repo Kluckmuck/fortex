@@ -9,8 +9,9 @@
       routerLink="/waybill/{{waybill.id}}">
       <h4 mat-line>{{waybill.name}}</h4>
       <h3 mat-line>{{waybill.date | date}}</h3>
-      <i mat-list-icon-right class="material-icons" matTooltip="See details">find_in_page</i>
+      <i mat-list-icon-right class="material-icons" matTooltip="See details" routerLink="/waybill/{{waybill.id}}">find_in_page</i>
       <i mat-list-icon-right class="material-icons" matTooltip="Send waybill" routerLink="/login">send</i>
+      <i mat-list-icon-right class="material-icons" matTooltip="Download PDF" routerLink="/login">save_alt</i>
     </mat-list-item>
   </mat-nav-list>
   <!-- <app-way-bill-detail [waybill]="selectedWaybill"></app-way-bill-detail>-->

@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 import { TinyWaybill } from '../models/TinyWaybill';
 import { Waybill } from '../models/Waybill';
-import { ElementString } from '../models/ElementString';
+import { ElementStringValue } from '../models/ElementStringValue';
 
 
 @Component({
@@ -15,7 +15,7 @@ import { ElementString } from '../models/ElementString';
 export class WayBillDetailComponent implements OnInit {
   @Input() tinyWaybill: TinyWaybill;
   waybill: Waybill;
-  elementStrings: ElementString[];
+  elementStrings: ElementStringValue[];
 
   constructor(
     private route: ActivatedRoute,
