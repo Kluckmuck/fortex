@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -24,20 +25,20 @@ public class WaybillForm {
 
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
     private Long id;
     private String name;
     private Date date;
     private Long orgId;
 
-    @OneToMany(mappedBy="waybillFormDate")
-    private Set<ElementDate>  elementDate;
+    @OneToMany(mappedBy="waybillFormDateId")
+    private Set<ElementDate>  elementDate = new HashSet<>();
 
-    @OneToMany(mappedBy="waybillFormString")
+    @OneToMany(mappedBy="waybillFormStringId")
     private Set<ElementString> elementString;
     
-    @OneToMany(mappedBy="waybillFormDouble")
+    @OneToMany(mappedBy="waybillFormDoubleId")
     private Set<ElementDouble> elementDouble;
 
     

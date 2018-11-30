@@ -31,8 +31,8 @@ public class ElementDouble {
     private Double value;
     private Boolean required;
     
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="WAYBILLFORM_ID")
-    private WaybillForm waybillFormDouble;
+
+    @JoinColumn(referencedColumnName="id")
+    private Long waybillFormDoubleId;
 
 }

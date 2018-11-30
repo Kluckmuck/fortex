@@ -36,7 +36,7 @@ public class ElementString {
     private Boolean required;
     
     
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="WAYBILLFORM_ID")
-    private WaybillForm waybillFormString;
+
+    @JoinColumn(referencedColumnName="id")
+    private Long waybillFormStringId;
 }

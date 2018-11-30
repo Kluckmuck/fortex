@@ -1,16 +1,14 @@
+
 package com.fortex.backend.waybill.elements;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * ElementDoubleRepository
+ * ElementStringRepository
  */
 @Repository
-public interface ElementDoubleRepository extends JpaRepository<ElementDouble, Long>{
+public interface ElementStringRepository extends JpaRepository<ElementString, Long>{
 
-
-    ElementDouble findElementDoubleById(Long id);
-
-    
+    ElementString findElementStringById(Long id);
 }
