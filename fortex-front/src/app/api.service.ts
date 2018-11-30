@@ -9,6 +9,7 @@ import { LoginUser } from './models/LoginUser';
 import { TinyWaybill } from './models/TinyWaybill';
 import { Waybill } from './models/Waybill';
 import { TinyForm } from './models/TinyForm';
+import { Form } from './models/Form';
 
 const API_URL = environment.apiUrl;
 
@@ -43,9 +44,15 @@ export class ApiService {
     return this.http.get<Waybill[]>(url);
   }
 
-  //API: GET WaybillForms
+  //API: GET TinyForms
   getWaybillFormList(): Observable<TinyForm[]> {
     const url = `${API_URL}/forms`;
     return this.http.get<TinyForm[]>(url);
+  }
+
+  //API: GET Forms
+  getForm(id: number): Observable<Form> {
+    const url = `${API_URL}/forms/${id}`;
+    return this.http.get<Form>(url);
   }
 }
