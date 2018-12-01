@@ -9,15 +9,15 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 
-public class UzerModel {
+public class UserModel {
 
 
-    public UzerModel(Uzer uzer) {
-        setId(uzer.getId());
-        setEmail(uzer.getEmail());
-        setLastName(uzer.getLastName());
-        setName(uzer.getName());
-        setPassword(uzer.getPassword());
+    public UserModel(User user) {
+        setId(user.getId());
+        setEmail(user.getEmail());
+        setLastName(user.getLastName());
+        setName(user.getName());
+        setPassword(user.getPassword());
     }
 
     private Long id;

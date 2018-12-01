@@ -8,9 +8,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ElementDoubleRepository extends JpaRepository<ElementDouble, Long>{
-
-
     ElementDouble findElementDoubleById(Long id);
-
     
 }

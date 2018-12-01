@@ -6,11 +6,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UzerRepository extends JpaRepository<Uzer, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    List<Uzer> findAll();
+    List<User> findAll();
 
-    Uzer findUserByEmail(String email);
+    User findUserByEmail(String email);
 
 
 }
