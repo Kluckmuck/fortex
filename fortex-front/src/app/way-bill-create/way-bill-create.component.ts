@@ -22,7 +22,7 @@ export class WayBillCreateComponent implements OnInit {
     this.getForm();
   }
 
-  getForm(id: number): void {
+  getForm(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.api.getForm(id)
      .subscribe(form => this.form = form);

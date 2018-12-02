@@ -4,15 +4,15 @@
   </mat-toolbar>
   <form class="up-form">
     <mat-form-field class="up-full-width">
-      <mat-select placeholder="Form" value="selectedValue" [(ngModel)]="selectedValue" name="formList">
-        <mat-option *ngFor="let form of formList" [value]="form.name">
+      <mat-select placeholder="Form" value="selectedValue.name" [(ngModel)]="selectedValue" name="formList">
+        <mat-option *ngFor="let form of formList" [value]="form.id">
           {{form.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
-  <div class="up-button-row">
-    <a mat-raised-button routerLink="/create/{{selectedValue.id}" routerLinkActive="active">Start</a>
+  <div *ngIf="selectedValue" class="up-button-row">
+    <a mat-raised-button routerLink="/create/{{selectedValue}}">Start</a>
   </div>
   </form>
 

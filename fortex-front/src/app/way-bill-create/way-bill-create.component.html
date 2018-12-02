@@ -4,11 +4,13 @@
   </mat-toolbar>
   <form>
     <mat-form-field>
-      {{form.id}}
-      {{form.name}}
+      <mat-label>Username</mat-label>
+      <input matInput>
     </mat-form-field>
   </form>
+  {{form.id}}
+  {{form.name}}
 </mat-card>
 <div class="up-button-row">
-  <a mat-raised-button routerLink="/user-portal" routerLinkActive="active">Back</a>
+  <button mat-raised-button routerLink="/user-portal" routerLinkActive>Back</button>
 </div>

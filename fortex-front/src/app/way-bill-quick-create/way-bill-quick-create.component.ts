@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
 
 import { TinyForm } from '../models/TinyForm';
 
@@ -9,11 +10,12 @@ import { TinyForm } from '../models/TinyForm';
   styleUrls: ['./way-bill-quick-create.component.scss']
 })
 export class WayBillQuickCreateComponent implements OnInit {
-  selectedValue: string;
+  selectedValue: TinyForm;
   formList: TinyForm[];
 
   constructor(
-    private api: ApiService
+    private api: ApiService,
+    private router: Router
   ) { }
 
   ngOnInit() {
