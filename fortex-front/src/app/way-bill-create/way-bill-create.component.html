@@ -1,16 +1,22 @@
-<mat-card *ngIf="form">
-  <mat-toolbar>
-    <span>Hej</span>
-  </mat-toolbar>
-  <form>
-    <mat-form-field>
-      <mat-label>Username</mat-label>
-      <input matInput>
-    </mat-form-field>
-  </form>
-  {{form.id}}
-  {{form.name}}
-</mat-card>
-<div class="up-button-row">
-  <button mat-raised-button routerLink="/user-portal" routerLinkActive>Back</button>
-</div>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <mat-card *ngIf="form">
+    <mat-toolbar>
+      <span>Hej</span>
+    </mat-toolbar>
+
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput type="text" placeholder="Name" formControlName="name">
+      </mat-form-field>
+    {{form.id}}
+    {{form.name}}
+  </mat-card>
+  <div class="up-button-row">
+    <button mat-raised-button type="submit" [disabled]="!formGroup.valid">Submit</button>
+    <button mat-raised-button routerLink="/user-portal" routerLinkActive>Back</button>
+  </div>
+</form>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 import { ApiService } from '../api.service';
 import { Form } from '../models/Form';
@@ -12,10 +14,15 @@ import { Form } from '../models/Form';
 })
 export class WayBillCreateComponent implements OnInit {
   form: Form;
+  formGroup = this.fb.group({
+    name: ['', Validators.required],
+    lastName: ['']
+  });
 
   constructor(
     private route: ActivatedRoute,
-    private api: ApiService
+    private api: ApiService,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -26,6 +33,12 @@ export class WayBillCreateComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.api.getForm(id)
      .subscribe(form => this.form = form);
+  }
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.log('Hello');
+    console.warn(this.formGroup.value);
   }
 
 }
