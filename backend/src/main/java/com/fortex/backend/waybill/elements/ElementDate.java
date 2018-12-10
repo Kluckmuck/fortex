@@ -1,7 +1,7 @@
 package com.fortex.backend.waybill.elements;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,12 +31,12 @@ import java.util.*;
 public class ElementDate {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="WAYBILLFORM_ID")
-    private WaybillForm waybillFormDate;
+    @JoinColumn( referencedColumnName = "id")
+    private Long waybillFormDateId;
 
     private Date date;
     private Boolean required;

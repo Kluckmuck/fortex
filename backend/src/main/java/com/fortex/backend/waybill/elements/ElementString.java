@@ -28,15 +28,13 @@ import lombok.Setter;
 @Entity
 public class ElementString {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     private String name;
     private Boolean required;
-    
-    
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="WAYBILLFORM_ID")
-    private WaybillForm waybillFormString;
+
+    @JoinColumn(referencedColumnName="id")
+    private Long waybillFormStringId;
 }

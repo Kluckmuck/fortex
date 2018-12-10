@@ -1,4 +1,4 @@
-package com.fortex.backend.config;
+package com.fortex.backend.security;
 
 import com.fortex.backend.user.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
