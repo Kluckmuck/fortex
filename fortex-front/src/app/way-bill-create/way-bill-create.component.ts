@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormArray } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 import { ApiService } from '../api.service';
@@ -16,7 +16,10 @@ export class WayBillCreateComponent implements OnInit {
   form: Form;
   formGroup = this.fb.group({
     name: ['', Validators.required],
-    lastName: ['']
+    lastName: [''],
+    strings: this.fb.array([
+      this.fb.control('')
+    ])
   });
 
   constructor(
