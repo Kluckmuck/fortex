@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormArray } from '@angular/forms';
+import { FormBuilder, FormArray, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 import { ApiService } from '../api.service';
@@ -14,6 +14,7 @@ import { Form } from '../models/Form';
 })
 export class WayBillCreateComponent implements OnInit {
   form: Form;
+  stringItems: FormArray;
   formGroup = this.fb.group({
     name: ['', Validators.required],
     lastName: [''],
@@ -30,6 +31,16 @@ export class WayBillCreateComponent implements OnInit {
 
   ngOnInit() {
     this.getForm();
+    this.formGroup = this.fb.group({
+      stringItems: this.fb.array([this.createString()])
+    });
+  }
+
+  createString(): FormGroup {
+    return this.fb.group({
+      name: ['', Validators.required],
+      value: ''
+    });
   }
 
   getForm(): void {
@@ -40,8 +51,11 @@ export class WayBillCreateComponent implements OnInit {
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    console.log('Hello');
     console.warn(this.formGroup.value);
+  }
+
+  get strings() {
+    return this.formGroup.get('strings') as FormArray;
   }
 
 }
