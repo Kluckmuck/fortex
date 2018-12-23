@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -56,8 +57,8 @@ public class UserService {
 
 
     public UserModel findUserByEmail(String email) {
-        User user = userRepository.findUserByEmail(email);
-        return new UserModel(user);
+        Optional<User> user = userRepository.findUserByEmail(email);
+        return new UserModel(user.get());
     }
 
 
