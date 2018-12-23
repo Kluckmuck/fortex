@@ -15,22 +15,22 @@ import org.springframework.web.bind.annotation.RestController;
 public class WaybillFormControllerInstance {
 
     @Autowired
-    private WaybillFormService waybillFormService;
+    private WaybillFormInstanceService waybillFormService;
 
 
     @PostMapping
-    public WaybillForm createNewWaybillForm(@RequestBody WaybillForm waybillForm){
+    public WaybillFormInstance createNewWaybillForm(@RequestBody WaybillFormInstance waybillForm){
         return waybillFormService.createNewWaybillForm(waybillForm);
 
     }
 
     @GetMapping
-    public List<WaybillForm> getAllWaybillForms(){
+    public List<WaybillFormInstance> getAllWaybillForms(){
         return waybillFormService.getAllWaybillForms();
     }
 
     @GetMapping(value="/{id}")
-    public WaybillForm findWaybillFormById(@PathVariable Long id){
+    public WaybillFormInstance findWaybillFormById(@PathVariable Long id){
         return waybillFormService.findWaybillFormById(id);
     }
 

@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface WaybillFormInstanceRepository extends JpaRepository<WaybillForm, Long> {
+public interface WaybillFormInstanceRepository extends JpaRepository<WaybillFormInstance, Long> {
 
-    List<WaybillForm> findAll();
+    List<WaybillFormInstance> findAll();
 
-    WaybillForm findWaybillFormById(Long id);
+    WaybillFormInstance findWaybillFormById(Long id);
 }

@@ -13,11 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WaybillFormServiceInstance {
+public class WaybillFormInstanceService {
 
 
     @Autowired
-    WaybillFormRepository waybillFormRepository;
+    WaybillFormInstanceRepository waybillFormRepository;
 
     @Autowired
     ElementDateValueRepository elementDateRepository;
@@ -29,7 +29,7 @@ public class WaybillFormServiceInstance {
     ElementStringValueRepository elementStringRepository;
 
 
-    public WaybillForm createNewWaybillForm(WaybillForm waybillForm){
+    public WaybillFormInstance createNewWaybillForm(WaybillFormInstance waybillForm){
         /**
          * Add each element and sets waybillform id.
          * TODO: solve ManyToOne annotation

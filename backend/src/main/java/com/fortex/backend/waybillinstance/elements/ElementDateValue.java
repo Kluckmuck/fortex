@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fortex.backend.waybillinstance.waybillform.WaybillForm;
+import com.fortex.backend.waybillinstance.waybillform.WaybillFormInstance;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
