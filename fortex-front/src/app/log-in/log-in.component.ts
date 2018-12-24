@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.scss']
 })
+
 export class LogInComponent {
+  users = [];
 
   constructor(
     private api: ApiService,
@@ -18,7 +20,7 @@ export class LogInComponent {
   user = new LoginUser('', '');
 
   login() {
-    this.router.navigate(['/user-portal']);
-    return this.api.login(this.user);
+    // this.router.navigate(['/user-portal']);
+    return this.api.postLogin(this.user).subscribe(user => this.users);
   }
 }

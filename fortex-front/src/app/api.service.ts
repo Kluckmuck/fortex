@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { MatTableDataSource } from '@angular/material';
 
 import { environment } from '../environments/environment';
+import { environmentSpring } from '../environments/environmentSpring';
 import { LoginUser } from './models/LoginUser';
 import { TinyWaybill } from './models/TinyWaybill';
 import { Waybill } from './models/Waybill';
@@ -12,6 +13,7 @@ import { TinyForm } from './models/TinyForm';
 import { Form } from './models/Form';
 
 const API_URL = environment.apiUrl;
+const API_URL_SPRING = environmentSpring.apiUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +27,13 @@ export class ApiService {
   public login(user: LoginUser) {
     console.log(user.userName + user.password);
   }
+
+  postLogin(user: LoginUser): Observable<LoginUser>{
+    const url = `${API_URL_SPRING}/api/user`;
+    return this.http.post<LoginUser>(url, user)
+  }
+
+  // getUsers()
 
   //API: GET Waybill
   getWaybill(id: number): Observable<Waybill> {
