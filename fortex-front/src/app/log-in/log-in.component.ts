@@ -18,7 +18,8 @@ export class LogInComponent {
   user = new LoginUser('', '');
 
   login() {
+    this.api.login(this.user)
+    .subscribe();
     this.router.navigate(['/user-portal']);
-    return this.api.login(this.user);
   }
 }

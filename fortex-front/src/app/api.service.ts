@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import { MatTableDataSource } from '@angular/material';
@@ -12,6 +12,11 @@ import { TinyForm } from './models/TinyForm';
 import { Form } from './models/Form';
 
 const API_URL = environment.apiUrl;
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +27,9 @@ export class ApiService {
   ) { }
 
   //API: POST User login
-  public login(user: LoginUser) {
-    console.log(user.userName + user.password);
+  login (hero: LoginUser): Observable<LoginUser> {
+    const url = `${API_URL}/user/`;
+    return this.http.post<LoginUser>(url, hero, httpOptions);
   }
 
   //API: GET Waybill
