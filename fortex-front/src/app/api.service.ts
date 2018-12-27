@@ -24,12 +24,14 @@ export class ApiService {
   ) { }
 
   //API: POST User login
-  public login(user: LoginUser) {
-    console.log(user.userName + user.password);
-  }
+  // public login(user: LoginUser) {
+  //   console.log(user.userName + user.password);
+  // }
 
   postLogin(user: LoginUser): Observable<LoginUser>{
     const url = `${API_URL_SPRING}/api/user`;
+    console.log(url)
+    console.log(user)
     return this.http.post<LoginUser>(url, user)
   }
 

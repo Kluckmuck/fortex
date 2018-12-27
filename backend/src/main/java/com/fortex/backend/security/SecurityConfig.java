@@ -28,16 +28,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public SecurityConfig(UserServiceImpl userService) {
         this.userDetailsService = userService;
     }
-    @Bean
-CorsConfigurationSource corsConfigurationSource()
-{
-    CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
-    configuration.setAllowedMethods(Arrays.asList("GET","POST"));
-    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration("/**", configuration);
-    return source;
-}
+//     @Bean
+// CorsConfigurationSource corsConfigurationSource()
+// {
+//     CorsConfiguration configuration = new CorsConfiguration();
+//     configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+//     configuration.setAllowedMethods(Arrays.asList("GET","POST"));
+//     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//     source.registerCorsConfiguration("/**", configuration);
+//     return source;
+// }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().authorizeRequests()
@@ -48,6 +48,7 @@ CorsConfigurationSource corsConfigurationSource()
         .authenticated()
         .and()
         .formLogin()
+        .loginPage("/login")
         .permitAll();
     }
 //     @Bean
