@@ -7,8 +7,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.*;
 

@@ -53,14 +53,8 @@ public class WaybillFormInstanceService {
         return waybillForm;
     }
 
-
-    public List<WaybillForm> getAllWaybillForms(){
-        return waybillFormRepository.findAll();
-    }
-
-
-	public WaybillForm findWaybillFormById(Long id) {
-		return waybillFormRepository.findWaybillFormById(id) ;
+	public WaybillFormInstance findWaybillFormById(Long id) {
+		return waybillFormInstanceRepository.findWaybillFormById(id) ;
 	}
 
 }
