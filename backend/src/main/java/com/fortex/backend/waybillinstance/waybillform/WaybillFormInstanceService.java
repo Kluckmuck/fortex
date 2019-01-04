@@ -39,7 +39,7 @@ public class WaybillFormInstanceService {
         
         if (waybill.getElementDateValue() != null) {
             waybill.getElementDateValue().forEach(elementDate -> {
-                element.setWaybillFormDateValueId(waybill.getId());
+                elementDate.setWaybillFormDateValueId(waybill.getId());
                 elementDateRepository.save(elementDate);
             });
         }
@@ -52,9 +52,9 @@ public class WaybillFormInstanceService {
         }
 
         if (waybill.getElementStringValue() != null) {
-            waybill.getElementStringValue().forEach(element ->{
+            waybill.getElementStringValue().forEach(elementString ->{
                 elementString.setWaybillFormStringValueId(waybill.getId());
-                elementStringRepository.save(element);
+                elementStringRepository.save(elementString);
             });
         }
         return waybill;

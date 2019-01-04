@@ -48,6 +48,4 @@ public class UserController {
     public ResponseEntity<UserModel> findUserByEmail (@PathVariable String email){
         return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.OK);
     }
-
-
 }
