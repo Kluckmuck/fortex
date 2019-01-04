@@ -29,8 +29,6 @@ public class ElementDoubleValue {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Double value;
-    private Boolean required;
-
 
     @JoinColumn(referencedColumnName="id")
     private Long waybillFormDoubleId;

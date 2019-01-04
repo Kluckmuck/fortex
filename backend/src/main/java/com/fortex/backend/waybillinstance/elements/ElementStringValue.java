@@ -32,8 +32,7 @@ public class ElementStringValue {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private Boolean required;
+    private String value;
 
     @JoinColumn(referencedColumnName="id")
     private Long waybillFormStringId;

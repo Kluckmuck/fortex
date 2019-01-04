@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value ="/api/waybillform")
+@RequestMapping(value ="/api/waybill")
 public class WaybillFormControllerInstance {
 
     @Autowired

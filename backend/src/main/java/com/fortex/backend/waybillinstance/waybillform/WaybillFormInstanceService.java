@@ -17,7 +17,7 @@ public class WaybillFormInstanceService {
 
 
     @Autowired
-    WaybillFormInstanceRepository waybillFormRepository;
+    WaybillFormInstanceRepository waybillFormInstanceRepository;
 
     @Autowired
     ElementDateValueRepository elementDateRepository;
@@ -35,7 +35,7 @@ public class WaybillFormInstanceService {
          * TODO: solve ManyToOne annotation
          */
 
-        waybillFormRepository.save(waybillForm);
+        waybillFormInstanceRepository.save(waybillForm);
         waybillForm.getElementDateValue().forEach(element -> {
             element.setWaybillFormDateId(waybillForm.getId());
             elementDateRepository.save(element);
