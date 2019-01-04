@@ -36,25 +36,25 @@ public class WaybillFormInstanceService {
          */
 
         waybillFormInstanceRepository.save(waybill); //Saving
-
-        if (waybill.getElementDateValue() =! null) {
-            waybill.getElementDateValue().forEach(element -> {
+        
+        if (waybill.getElementDateValue() != null) {
+            waybill.getElementDateValue().forEach(elementDate -> {
                 element.setWaybillFormDateValueId(waybill.getId());
-                elementDateRepository.save(element);
+                elementDateRepository.save(elementDate);
             });
         }
 
-        if (waybill.getElementDoubleValue() =! null) {
+        if (waybill.getElementDoubleValue() != null) {
             waybill.getElementDoubleValue().forEach(elementDouble ->{
                 elementDouble.setWaybillFormDoubleValueId(waybill.getId());
                 elementDoubleRepository.save(elementDouble);
             });
         }
 
-        if (waybill.getElementStringValue() =! null) {
-            waybill.getElementStringValue().forEach(elementString ->{
+        if (waybill.getElementStringValue() != null) {
+            waybill.getElementStringValue().forEach(element ->{
                 elementString.setWaybillFormStringValueId(waybill.getId());
-                elementStringRepository.save(elementString);
+                elementStringRepository.save(element);
             });
         }
         return waybill;
