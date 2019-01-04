@@ -1,4 +1,4 @@
-package com.fortex.backend.waybill.elements;
+package com.fortex.backend.waybillinstance.elements;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +16,7 @@ import lombok.Setter;
 import java.util.*;
 
 /**
- * ElementDate
+ * ElementDateValue
  */
 
  @Getter
@@ -25,7 +25,7 @@ import java.util.*;
  @AllArgsConstructor
  @NoArgsConstructor
  @Entity
-public class ElementDate {
+public class ElementDateValue {
 
     @Id
     @Column(name = "id")
@@ -33,9 +33,7 @@ public class ElementDate {
     private Long id;
 
     @JoinColumn( referencedColumnName = "id")
-    private Long waybillFormDateId;
+    private Long waybillFormDateValueId;
 
-    private Date date;
-    private Boolean required;
-    
+    private Date value;
 }
