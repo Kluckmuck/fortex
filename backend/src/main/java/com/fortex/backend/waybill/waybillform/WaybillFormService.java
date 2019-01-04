@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class WaybillFormService {
 
-
     @Autowired
     WaybillFormRepository waybillFormRepository;
 
@@ -28,40 +27,41 @@ public class WaybillFormService {
     @Autowired
     ElementStringRepository elementStringRepository;
 
-
-    public WaybillForm createNewWaybillForm(WaybillForm waybillForm){
+    public WaybillForm createNewWaybillForm(WaybillForm waybillForm) {
         /**
-         * Add each element and sets waybillform id.
-         * TODO: solve ManyToOne annotation
+         * Add each element and sets waybillform id. TODO: solve ManyToOne annotation
          */
 
-        waybillFormRepository.save(waybillForm); //Saving
-
-        waybillForm.getElementDate().forEach(element -> { 
+        waybillFormRepository.save(waybillForm); // Saving
+        
+        if (waybillForm.getElementDate() != null) {
+            waybillForm.getElementDate().forEach(element -> {
             element.setWaybillFormDateId(waybillForm.getId());
             elementDateRepository.save(element);
-        });
-        
-        waybillForm.getElementDouble().forEach(elementDouble ->{
-            elementDouble.setWaybillFormDoubleId(waybillForm.getId());
-            elementDoubleRepository.save(elementDouble);
-        });
-        
-        waybillForm.getElementString().forEach(elementString ->{
-            elementString.setWaybillFormStringId(waybillForm.getId());
-            elementStringRepository.save(elementString);
-        });
+            });
+        }
+        if (waybillForm.getElementDouble() != null) {
+            waybillForm.getElementDouble().forEach(elementDouble -> {
+                elementDouble.setWaybillFormDoubleId(waybillForm.getId());
+                elementDoubleRepository.save(elementDouble);
+            });
+        }
+
+        if (waybillForm.getElementString() != null) {
+            waybillForm.getElementString().forEach(elementString -> {
+                elementString.setWaybillFormStringId(waybillForm.getId());
+                elementStringRepository.save(elementString);
+            });
+        }
         return waybillForm;
     }
 
-
-    public List<WaybillForm> getAllWaybillForms(){
+    public List<WaybillForm> getAllWaybillForms() {
         return waybillFormRepository.findAll();
     }
 
-
-	public WaybillForm findWaybillFormById(Long id) {
-		return waybillFormRepository.findWaybillFormById(id) ;
-	}
+    public WaybillForm findWaybillFormById(Long id) {
+        return waybillFormRepository.findWaybillFormById(id);
+    }
 
 }
