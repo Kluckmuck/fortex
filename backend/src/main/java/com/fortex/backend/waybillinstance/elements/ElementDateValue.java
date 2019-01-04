@@ -33,7 +33,7 @@ public class ElementDateValue {
     private Long id;
 
     @JoinColumn( referencedColumnName = "id")
-    private Long waybillFormDateId;
+    private Long waybillFormDateValueId;
 
     private Date value;
 }

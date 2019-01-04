@@ -24,11 +24,6 @@ public class WaybillFormControllerInstance {
 
     }
 
-    @GetMapping
-    public List<WaybillFormInstance> getAllWaybillForms(){
-        return waybillFormService.getAllWaybillForms();
-    }
-
     @GetMapping(value="/{id}")
     public WaybillFormInstance findWaybillFormById(@PathVariable Long id){
         return waybillFormService.findWaybillFormById(id);

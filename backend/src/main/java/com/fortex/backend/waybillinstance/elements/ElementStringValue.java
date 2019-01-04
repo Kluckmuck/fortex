@@ -35,5 +35,5 @@ public class ElementStringValue {
     private String value;
 
     @JoinColumn(referencedColumnName="id")
-    private Long waybillFormStringId;
+    private Long waybillFormStringValueId;
 }

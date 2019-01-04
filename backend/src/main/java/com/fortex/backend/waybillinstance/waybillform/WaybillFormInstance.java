@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -31,13 +32,13 @@ public class WaybillFormInstance {
     private Date date;
 
     @OneToMany(mappedBy="waybillFormDateValueId")
-    private Set<ElementDateValue>  elementDate;
+    private Set<ElementDateValue>  elementDateValue;
 
     @OneToMany(mappedBy="waybillFormStringValueId")
-    private Set<ElementStringValue> elementString;
+    private Set<ElementStringValue> elementStringValue;
 
     @OneToMany(mappedBy="waybillFormDoubleValueId")
-    private Set<ElementDoubleValue> elementDouble;
+    private Set<ElementDoubleValue> elementDoubleValue;
 
 
 

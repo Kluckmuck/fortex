@@ -31,6 +31,6 @@ public class ElementDoubleValue {
     private Double value;
 
     @JoinColumn(referencedColumnName="id")
-    private Long waybillFormDoubleId;
+    private Long waybillFormDoubleValueId;
 
 }

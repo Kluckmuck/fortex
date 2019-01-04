@@ -29,28 +29,28 @@ public class WaybillFormInstanceService {
     ElementStringValueRepository elementStringRepository;
 
 
-    public WaybillFormInstance createNewWaybillForm(WaybillFormInstance waybillForm){
+    public WaybillFormInstance createNewWaybillForm(WaybillFormInstance waybill){
         /**
          * Add each element and sets waybillform id.
          * TODO: solve ManyToOne annotation
          */
 
-        waybillFormInstanceRepository.save(waybillForm);
-        waybillForm.getElementDateValue().forEach(element -> {
-            element.setWaybillFormDateId(waybillForm.getId());
+        waybillFormInstanceRepository.save(waybill);
+        waybill.getElementDateValue().forEach(element -> {
+            element.setWaybillFormDateValueId(waybill.getId());
             elementDateRepository.save(element);
         });
 
-        waybillForm.getElementDoubleValue().forEach(elementDouble ->{
-            elementDouble.setWaybillFormDoubleId(waybillForm.getId());
+        waybill.getElementDoubleValue().forEach(elementDouble ->{
+            elementDouble.setWaybillFormDoubleValueId(waybill.getId());
             elementDoubleRepository.save(elementDouble);
         });
 
-        waybillForm.getElementStringValue().forEach(elementString ->{
-            elementString.setWaybillFormStringId(waybillForm.getId());
+        waybill.getElementStringValue().forEach(elementString ->{
+            elementString.setWaybillFormStringValueId(waybill.getId());
             elementStringRepository.save(elementString);
         });
-        return waybillForm;
+        return waybill;
     }
 
 	public WaybillFormInstance findWaybillFormById(Long id) {
