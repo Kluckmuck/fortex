@@ -35,21 +35,28 @@ public class WaybillFormInstanceService {
          * TODO: solve ManyToOne annotation
          */
 
-        waybillFormInstanceRepository.save(waybill);
-        waybill.getElementDateValue().forEach(element -> {
-            element.setWaybillFormDateValueId(waybill.getId());
-            elementDateRepository.save(element);
-        });
+        waybillFormInstanceRepository.save(waybill); //Saving
 
-        waybill.getElementDoubleValue().forEach(elementDouble ->{
-            elementDouble.setWaybillFormDoubleValueId(waybill.getId());
-            elementDoubleRepository.save(elementDouble);
-        });
+        if (waybill.getElementDateValue() =! null) {
+            waybill.getElementDateValue().forEach(element -> {
+                element.setWaybillFormDateValueId(waybill.getId());
+                elementDateRepository.save(element);
+            });
+        }
 
-        waybill.getElementStringValue().forEach(elementString ->{
-            elementString.setWaybillFormStringValueId(waybill.getId());
-            elementStringRepository.save(elementString);
-        });
+        if (waybill.getElementDoubleValue() =! null) {
+            waybill.getElementDoubleValue().forEach(elementDouble ->{
+                elementDouble.setWaybillFormDoubleValueId(waybill.getId());
+                elementDoubleRepository.save(elementDouble);
+            });
+        }
+
+        if (waybill.getElementStringValue() =! null) {
+            waybill.getElementStringValue().forEach(elementString ->{
+                elementString.setWaybillFormStringValueId(waybill.getId());
+                elementStringRepository.save(elementString);
+            });
+        }
         return waybill;
     }
 
