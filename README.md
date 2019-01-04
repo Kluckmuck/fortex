@@ -6,6 +6,9 @@ mvn spring-boot:run
 #### Start frontend
 npm start
 
+#### Start json-server
+json-server --watch MOCK_DATA.json
+
 #### Connect to mysql-database-dockercontainer.
 1. Create mysql container. with this command.:
 ```shell
