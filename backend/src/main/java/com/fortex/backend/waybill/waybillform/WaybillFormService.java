@@ -35,7 +35,8 @@ public class WaybillFormService {
          * TODO: solve ManyToOne annotation
          */
 
-        waybillFormRepository.save(waybillForm);
+        waybillFormRepository.save(waybillForm); //Saving
+
         waybillForm.getElementDate().forEach(element -> { 
             element.setWaybillFormDateId(waybillForm.getId());
             elementDateRepository.save(element);

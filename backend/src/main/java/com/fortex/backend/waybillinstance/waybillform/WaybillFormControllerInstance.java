@@ -19,14 +19,13 @@ public class WaybillFormControllerInstance {
 
 
     @PostMapping
-    public WaybillFormInstance createNewWaybillForm(@RequestBody WaybillFormInstance waybillForm){
-        return waybillFormService.createNewWaybillForm(waybillForm);
-
+    public WaybillFormInstance createNewWaybill(@RequestBody WaybillFormInstance waybillForm){
+        return waybillFormService.createNewWaybill(waybillForm);
     }
 
     @GetMapping(value="/{id}")
-    public WaybillFormInstance findWaybillFormById(@PathVariable Long id){
-        return waybillFormService.findWaybillFormById(id);
+    public WaybillFormInstance findWaybillById(@PathVariable Long id){
+        return waybillFormService.findWaybillById(id);
     }
 
 }

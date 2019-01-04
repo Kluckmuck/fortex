@@ -29,7 +29,7 @@ public class WaybillFormInstanceService {
     ElementStringValueRepository elementStringRepository;
 
 
-    public WaybillFormInstance createNewWaybillForm(WaybillFormInstance waybill){
+    public WaybillFormInstance createNewWaybill(WaybillFormInstance waybill){
         /**
          * Add each element and sets waybillform id.
          * TODO: solve ManyToOne annotation
@@ -53,8 +53,8 @@ public class WaybillFormInstanceService {
         return waybill;
     }
 
-	public WaybillFormInstance findWaybillFormById(Long id) {
-		return waybillFormInstanceRepository.findWaybillFormById(id) ;
+	public WaybillFormInstance findWaybillById(Long id) {
+		return waybillFormInstanceRepository.findWaybillById(id) ;
 	}
 
 }

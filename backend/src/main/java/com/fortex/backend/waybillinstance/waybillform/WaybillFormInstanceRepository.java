@@ -8,5 +8,5 @@ public interface WaybillFormInstanceRepository extends JpaRepository<WaybillForm
 
     List<WaybillFormInstance> findAll();
 
-    WaybillFormInstance findWaybillFormById(Long id);
+    WaybillFormInstance findWaybillById(Long id);
 }
