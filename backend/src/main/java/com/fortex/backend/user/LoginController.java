@@ -13,7 +13,7 @@ public class LoginController {
     private UserService userService;
 
     @PostMapping
-    public ResponseEntity<Void> loginUser(@RequestBody UserModel userModel) {
+    public ResponseEntity<UserModel> loginUser(@RequestBody UserModel userModel) {
         return userService.loginUser(userModel);
     }
 }
