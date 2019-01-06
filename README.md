@@ -1,17 +1,6 @@
-### Fortex application for waybills
+## Fortex application for waybills
 
-#### Start backend
-```shell
-cd backend\
-mvn spring-boot:run
-```
-
-#### Start frontend
-npm start
-
-#### Start json-server
-json-server --watch MOCK_DATA.json
-
+### Backend
 #### Connect to mysql-database-dockercontainer.
 1. Create mysql container. with this command.:
 ```shell
@@ -29,3 +18,28 @@ spring boot user to post to the database. Follow this steps:
 > You have now created the the mysql database within the docker container
 the password, username and databasename is reflected in the
 application.properties file under src/main/resources/application.properties.
+
+#### Run
+```shell
+cd backend/
+mvn spring-boot:run
+```
+
+#### Test
+```shell
+cd backend/
+mvn test
+```
+
+### Frontend
+#### Run
+```shell
+cd fortex-front/
+npm install
+npm start
+```
+
+#### Run json-server
+```shell
+json-server --watch MOCK_DATA.json
+```
