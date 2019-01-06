@@ -1,7 +1,12 @@
 package com.fortex.backend;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import com.fortex.backend.user.LoginController;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -9,8 +14,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class BackendApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+	@Autowired
+	private LoginController controller;
 
+	@Test
+	public void contexLoads() throws Exception {
+		assertThat(controller).isNotNull();
+	}
 }
