@@ -1,7 +1,10 @@
 ### Fortex application for waybills
 
 #### Start backend
+```shell
+cd backend\
 mvn spring-boot:run
+```
 
 #### Start frontend
 npm start
