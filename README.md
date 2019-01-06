@@ -19,6 +19,11 @@ spring boot user to post to the database. Follow this steps:
 the password, username and databasename is reflected in the
 application.properties file under src/main/resources/application.properties.
 
+If the container stops, it may be started with 
+```shell
+docker start docker-mysql
+```
+
 #### Run
 ```shell
 cd backend/
