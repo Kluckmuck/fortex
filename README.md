@@ -24,6 +24,7 @@ application.properties file under src/main/resources/application.properties.
 cd backend/
 mvn spring-boot:run
 ```
+Runs on port 8080.
 
 #### Test
 ```shell
@@ -38,8 +39,10 @@ cd fortex-front/
 npm install
 npm start
 ```
+Runs on port 4200.
 
 #### Run json-server
 ```shell
 json-server --watch MOCK_DATA.json
 ```
+Runs on port 3000.
