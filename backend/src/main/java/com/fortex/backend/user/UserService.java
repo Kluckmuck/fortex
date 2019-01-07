@@ -43,25 +43,16 @@ public class UserService {
      * 
      */
     public ResponseEntity<UserModel> loginUser(UserModel userModel) {
-        User user = userRepository.findUserByEmail(userModel.getEmail());
-        if (user.getPassword().equals(userModel.getPassword())) {
-            return new ResponseEntity<UserModel>(new UserModel(user), HttpStatus.OK);
-        } else {
+        try{
+            User user = userRepository.findUserByEmail(userModel.getEmail());
+            if (user.getPassword().equals(userModel.getPassword())) {
+                return new ResponseEntity<UserModel>(new UserModel(user), HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }catch(NullPointerException e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        
-        // alternativ lösning om du vill fånga alla nullpointers(kan hända att
-        // det kastas i onödan. )
-        // try{
-        //     User user = userRepository.findUserByEmail(userModel.getEmail());
-        //     if (user.getPassword().equals(userModel.getPassword())) {
-        //         return new ResponseEntity<UserModel>(new UserModel(user), HttpStatus.OK);
-        //     } else {
-        //         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        //     }
-        // }catch(NullPointerException e){
-        //     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        // }
     }
 
     public ResponseEntity<Void> deleteUserById(Long id) {

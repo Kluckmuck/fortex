@@ -37,6 +37,12 @@ cd backend/
 mvn test
 ```
 
+```shell
+mvn jacoco:report
+```
+Produces report as a readable format (HTML, XML, CSV).
+These can be find in target/site/jacoco/
+
 ### Frontend
 #### Run
 ```shell
