@@ -18,9 +18,9 @@ public class WaybillFormController {
     private WaybillFormService waybillFormService;
 
 
-    @PostMapping
-    public WaybillForm createNewWaybillForm(@RequestBody WaybillForm waybillForm){
-        return waybillFormService.createNewWaybillForm(waybillForm);
+    @PostMapping("{orgId}")
+    public WaybillForm createNewWaybillForm(@PathVariable Long orgId, @RequestBody WaybillForm waybillForm){
+        return waybillFormService.createNewWaybillForm(orgId,waybillForm);
 
     }
 

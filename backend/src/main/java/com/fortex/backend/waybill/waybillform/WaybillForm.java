@@ -12,6 +12,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fortex.backend.organization.Organization;
 import com.fortex.backend.waybill.elements.ElementDate;
 import com.fortex.backend.waybill.elements.ElementDouble;
 import com.fortex.backend.waybill.elements.ElementString;
@@ -30,7 +31,6 @@ public class WaybillForm {
     private Long id;
     private String name;
     private Date date;
-    private Long orgId;
 
     @OneToMany(mappedBy="waybillFormDateId")
     private Set<ElementDate>  elementDate = new HashSet<>();
@@ -41,7 +41,9 @@ public class WaybillForm {
     @OneToMany(mappedBy="waybillFormDoubleId")
     private Set<ElementDouble> elementDouble;
 
-    
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "organization_id", nullable = true)
+    private Organization organization;
 
 
 }
