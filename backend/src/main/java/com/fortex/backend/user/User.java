@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 
+import com.fortex.backend.organization.Organization;
+
 @Getter
 @Setter
 @Data
@@ -23,5 +25,10 @@ public class User {
     private String name;
     private String lastName;
     private String password;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    private Organization organization;
+
 
 }

@@ -1,5 +1,9 @@
 package com.fortex.backend.organization;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -33,8 +37,12 @@ public class Organization {
     
     private String companyName;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = true)
-    private User user;
+    @OneToMany(cascade = CascadeType.ALL,
+    fetch = FetchType.LAZY,mappedBy="organization")
+    private Set<User> user;
     
+
+    public void addEmployeeToOrganization(User user){
+        this.user.add(user);
+    }
 }

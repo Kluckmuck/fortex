@@ -1,5 +1,7 @@
 package com.fortex.backend.organization;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -7,6 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface OrganizationRepository extends JpaRepository<Organization, Long> {
 
-    Organization findOrganizationById(Long id);
+    List<Organization> findAll();
+
+	Organization findOrganizationById(Long id);
     
 }
