@@ -17,8 +17,8 @@ public class OrganizationController {
     @Autowired
     private OrganizationService organizationService;
     
-    @PostMapping(value ="{userId}")
-    public Organization createNewOrganization(@PathVariable Long userId, @RequestBody Organization organization){
-        return organizationService.createNewOrganization(userId, organization);
+    @PostMapping
+    public Organization createNewOrganization(@RequestBody Organization organization){
+        return organizationService.createNewOrganization( organization);
     }
 }

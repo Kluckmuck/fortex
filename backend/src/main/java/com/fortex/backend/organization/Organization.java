@@ -32,9 +32,4 @@ public class Organization {
     private Long id;
     
     private String companyName;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = true)
-    private User user;
-    
 }
