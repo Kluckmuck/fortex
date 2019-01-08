@@ -1,10 +1,15 @@
 package com.fortex.backend.organization;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fortex.backend.user.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,5 +32,9 @@ public class Organization {
     private Long id;
     
     private String companyName;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = true)
+    private User user;
     
 }
