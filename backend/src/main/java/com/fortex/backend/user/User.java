@@ -26,8 +26,9 @@ public class User {
     private String lastName;
     private String password;
 
-    // An organization can have many employees.
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    // An organization can have many employees. TODO: EAGER might become a
+    // problem due to its fast loading. 
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
     @JoinColumn(name = "organization_id", nullable = true)
     private Organization organization;
 

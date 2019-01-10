@@ -1,5 +1,7 @@
 package com.fortex.backend.user;
 
+import com.fortex.backend.organization.Organization;
+
 import lombok.*;
 
 
@@ -18,6 +20,10 @@ public class UserModel {
         setLastName(user.getLastName());
         setName(user.getName());
         setPassword(user.getPassword());
+        if(user.getOrganization() != null){
+            System.out.println(user.getOrganization());
+            setOrganization(user.getOrganization());
+        }
     }
 
     private Long id;
@@ -26,6 +32,7 @@ public class UserModel {
     private String name;
     private String lastName;
     private String password;
+    private Organization organization;
 
 
 }
