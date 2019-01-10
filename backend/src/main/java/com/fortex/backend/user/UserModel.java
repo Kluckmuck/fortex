@@ -21,7 +21,6 @@ public class UserModel {
         setName(user.getName());
         setPassword(user.getPassword());
         if(user.getOrganization() != null){
-            System.out.println(user.getOrganization());
             setOrganization(user.getOrganization());
         }
     }

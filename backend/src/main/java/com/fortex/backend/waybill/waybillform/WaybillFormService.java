@@ -56,6 +56,8 @@ public class WaybillFormService {
         }).orElseThrow(() -> new ResourceNotFoundException("error"));
     }
 
+    
+
     public List<WaybillForm> getAllWaybillForms() {
         return waybillFormRepository.findAll();
     }

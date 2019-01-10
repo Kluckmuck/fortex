@@ -25,7 +25,7 @@ public class User {
     private String name;
     private String lastName;
     private String password;
-
+  
     // An organization can have many employees. TODO: EAGER might become a
     // problem due to its fast loading. 
     @ManyToOne(fetch = FetchType.EAGER, optional = true)
