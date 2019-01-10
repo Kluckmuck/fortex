@@ -5,15 +5,9 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-import com.fortex.backend.user.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,13 +30,4 @@ public class Organization {
     private Long id;
     
     private String companyName;
-
-    @OneToMany(cascade = CascadeType.ALL,
-    fetch = FetchType.LAZY,mappedBy="organization")
-    private Set<User> user;
-    
-
-    public void addEmployeeToOrganization(User user){
-        this.user.add(user);
-    }
 }
