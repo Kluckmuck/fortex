@@ -11,6 +11,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fortex.backend.waybill.waybillform.WaybillForm;
 import com.fortex.backend.waybillinstance.elements.ElementDateValue;
 import com.fortex.backend.waybillinstance.elements.ElementDoubleValue;
 import com.fortex.backend.waybillinstance.elements.ElementStringValue;
@@ -20,7 +21,7 @@ import com.fortex.backend.waybillinstance.elements.ElementStringValue;
 @Data
 @ToString
 @Entity
-public class WaybillFormInstance {
+public class WaybillFormInstance extends WaybillForm {
 
 
     @Id

@@ -1,10 +1,8 @@
 package com.fortex.backend.waybillinstance.waybillform;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
-import com.fortex.backend.waybillinstance.elements.ElementDateValue;
+import com.fortex.backend.waybill.waybillform.WaybillForm;
+import com.fortex.backend.waybill.waybillform.WaybillFormRepository;
 import com.fortex.backend.waybillinstance.elements.ElementDateValueRepository;
 import com.fortex.backend.waybillinstance.elements.ElementDoubleValueRepository;
 import com.fortex.backend.waybillinstance.elements.ElementStringValueRepository;
@@ -28,13 +26,15 @@ public class WaybillFormInstanceService {
     @Autowired
     ElementStringValueRepository elementStringRepository;
 
+    @Autowired
+    WaybillFormRepository waybillFormRepository;
+
 
     public WaybillFormInstance createNewWaybill(WaybillFormInstance waybill){
         /**
          * Add each element and sets waybillform id.
          * TODO: solve ManyToOne annotation
          */
-
         waybillFormInstanceRepository.save(waybill); //Saving
         
         if (waybill.getElementDateValue() != null) {
@@ -61,7 +61,12 @@ public class WaybillFormInstanceService {
     }
 
 	public WaybillFormInstance findWaybillById(Long id) {
+        WaybillForm waybillForm = waybillFormRepository.findWaybillFormById(id);
+        waybillForm.getElementString().forEach(elementString -> {
+        });
+
 		return waybillFormInstanceRepository.findWaybillById(id) ;
-	}
+    }
+    
 
 }

@@ -39,6 +39,8 @@ public class WaybillFormService {
     ElementStringValueRepository elementStringValueRepository;
 
     public WaybillForm createNewWaybillForm(Long orgId, WaybillForm waybillForm) {
+        
+        waybillFormRepository.save(waybillForm);
 
         return organizationRepository.findById(orgId).map(organization -> {
             waybillForm.setOrganization(organization);
@@ -52,13 +54,6 @@ public class WaybillFormService {
                 waybillForm.getElementDouble().forEach(elementDouble -> {
                     elementDouble.setWaybillFormDoubleId(waybillForm.getId());
                     elementDoubleRepository.save(elementDouble);
-
-                    AbstractFactory elementFactory = new ElementFactory();
-                    ElementValue elementStringValue = elementFactory.getElementType("String");
-                    elementStringValue.addValue(waybillForm.getId());
-
-                    elementStringValueRepository.save(elementStringValue);
-
                 });
             }
 
@@ -68,7 +63,7 @@ public class WaybillFormService {
                     elementStringRepository.save(elementString);
                 });
             }
-            return waybillFormRepository.save(waybillForm);
+            return waybillForm;
         }).orElseThrow(() -> new ResourceNotFoundException("error"));
     }
 
@@ -77,6 +72,10 @@ public class WaybillFormService {
     }
 
     public WaybillForm findWaybillFormById(Long id) {
+        WaybillForm waybillform = waybillFormRepository.findWaybillFormById(id);
+
+        
+
         return waybillFormRepository.findWaybillFormById(id);
     }
 

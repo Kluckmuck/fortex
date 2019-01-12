@@ -24,7 +24,7 @@ public class ElementDouble {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Double value;
+    private String valueName;
     private Boolean required;
     
 

@@ -1,10 +1,14 @@
 package com.fortex.backend.waybill.elements;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import com.fortex.backend.waybillinstance.elements.ElementStringValue;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,4 +37,5 @@ public class ElementString {
 
     @JoinColumn(referencedColumnName="id")
     private Long waybillFormStringId;
+
 }
