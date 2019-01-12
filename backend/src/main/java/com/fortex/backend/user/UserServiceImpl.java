@@ -2,7 +2,6 @@ package com.fortex.backend.user;
 
 import org.springframework.stereotype.Service;
 
-import static java.util.Collections.emptyList;
 
 @Service
 public class UserServiceImpl {

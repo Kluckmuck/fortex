@@ -7,12 +7,19 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
+import com.fortex.backend.exceptions.ResourceNotFoundException;
+import com.fortex.backend.organization.OrganizationRepository;
 
 @Service
 public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private OrganizationRepository organizationRepository;
 
     public UserModel createUser(UserModel userModel) {
         User user = new User();
@@ -80,6 +87,8 @@ public class UserService {
         return new UserModel(user);
     }
 
+
+
     public List<UserModel> convertUserListToUserModelList(List<User> userList) {
         List<UserModel> userModelList = new ArrayList<>();
         for (User user : userList) {
@@ -87,5 +96,15 @@ public class UserService {
         }
         return userModelList;
     }
+
+    public User addOrganization(Long organizationId, Long userId){
+        Optional<User> user = userRepository.findById(userId);
+		return organizationRepository.findById(organizationId).map(organization ->{
+			user.get().setOrganization(organization);
+			return userRepository.save(user.get());
+		}).orElseThrow(()-> new ResourceNotFoundException("error0"));
+	}
+
+   
 
 }

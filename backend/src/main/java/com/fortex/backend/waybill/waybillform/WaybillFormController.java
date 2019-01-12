@@ -18,11 +18,11 @@ public class WaybillFormController {
     private WaybillFormService waybillFormService;
 
 
-    @PostMapping
-    public WaybillForm createNewWaybillForm(@RequestBody WaybillForm waybillForm){
-        return waybillFormService.createNewWaybillForm(waybillForm);
-
+    @PostMapping("/orgid/{orgId}")
+    public WaybillForm createNewWaybillFormWithOrganization(@PathVariable Long orgId, @RequestBody WaybillForm waybillForm){
+        return waybillFormService.createNewWaybillForm(orgId,waybillForm);
     }
+
 
     @GetMapping
     public List<WaybillForm> getAllWaybillForms(){
