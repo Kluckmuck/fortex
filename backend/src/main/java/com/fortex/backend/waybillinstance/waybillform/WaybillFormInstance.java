@@ -30,6 +30,7 @@ public class WaybillFormInstance {
     private Long employeeId;
     private Long formId;
     private Date date;
+    private Long elementId;
 
     @OneToMany(mappedBy="waybillFormDateValueId")
     private Set<ElementDateValue>  elementDateValue;
