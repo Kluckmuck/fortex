@@ -11,7 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.fortex.backend.waybill.elements.ElementString;
-import com.fortex.backend.waybillinstance.elmentfactory.ElementValue;
 import com.fortex.backend.waybillinstance.waybillform.WaybillFormInstance;
 
 import lombok.AllArgsConstructor;
@@ -32,7 +31,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Entity
 @ToString
-public class ElementStringValue implements ElementValue {
+public class ElementStringValue  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,16 +43,9 @@ public class ElementStringValue implements ElementValue {
     @JoinColumn(referencedColumnName="id")
     private Long waybillFormStringValueId;
 
-    public ElementStringValue (Long id){
-        this.waybillFormStringValueId = id;
-    }
-
-    @Override
-    public ElementStringValue addValue(Long id) {
-        ElementStringValue elementStringValue = new ElementStringValue();
-        elementStringValue.setWaybillFormStringValueId(id);
-        return elementStringValue;
-    }
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
+    @JoinColumn(name = "element_string_id", nullable = true)
+    private ElementString elementString;
 
 
 }

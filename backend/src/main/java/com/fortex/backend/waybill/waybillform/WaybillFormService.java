@@ -10,9 +10,6 @@ import com.fortex.backend.waybill.elements.ElementStringRepository;
 import com.fortex.backend.waybillinstance.elements.ElementDateValueRepository;
 import com.fortex.backend.waybillinstance.elements.ElementStringValue;
 import com.fortex.backend.waybillinstance.elements.ElementStringValueRepository;
-import com.fortex.backend.waybillinstance.elmentfactory.AbstractFactory;
-import com.fortex.backend.waybillinstance.elmentfactory.ElementFactory;
-import com.fortex.backend.waybillinstance.elmentfactory.ElementValue;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -74,7 +71,7 @@ public class WaybillFormService {
     public WaybillForm findWaybillFormById(Long id) {
         WaybillForm waybillform = waybillFormRepository.findWaybillFormById(id);
 
-        
+
 
         return waybillFormRepository.findWaybillFormById(id);
     }

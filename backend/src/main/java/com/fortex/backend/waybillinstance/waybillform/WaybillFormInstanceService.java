@@ -35,6 +35,9 @@ public class WaybillFormInstanceService {
          * Add each element and sets waybillform id.
          * TODO: solve ManyToOne annotation
          */
+        // return waybillFormRepository.findById(waybill.getFormId()).map(waybill ->{
+            
+        // })
         waybillFormInstanceRepository.save(waybill); //Saving
         
         if (waybill.getElementDateValue() != null) {
