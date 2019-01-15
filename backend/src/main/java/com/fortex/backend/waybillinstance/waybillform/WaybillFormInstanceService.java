@@ -1,10 +1,11 @@
 package com.fortex.backend.waybillinstance.waybillform;
 
-
+import com.fortex.backend.exceptions.ResourceNotFoundException;
 import com.fortex.backend.waybill.waybillform.WaybillForm;
 import com.fortex.backend.waybill.waybillform.WaybillFormRepository;
 import com.fortex.backend.waybillinstance.elements.ElementDateValueRepository;
 import com.fortex.backend.waybillinstance.elements.ElementDoubleValueRepository;
+import com.fortex.backend.waybillinstance.elements.ElementStringValue;
 import com.fortex.backend.waybillinstance.elements.ElementStringValueRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class WaybillFormInstanceService {
-
 
     @Autowired
     WaybillFormInstanceRepository waybillFormInstanceRepository;
@@ -29,47 +29,49 @@ public class WaybillFormInstanceService {
     @Autowired
     WaybillFormRepository waybillFormRepository;
 
-
-    public WaybillFormInstance createNewWaybill(WaybillFormInstance waybill){
+    public WaybillFormInstance createNewWaybill(Long id, WaybillFormInstance waybillFormInstance) {
         /**
-         * Add each element and sets waybillform id.
-         * TODO: solve ManyToOne annotation
+         * Add each element and sets waybillform id. TODO: solve ManyToOne annotation
          */
-        // return waybillFormRepository.findById(waybill.getFormId()).map(waybill ->{
-            
-        // })
-        waybillFormInstanceRepository.save(waybill); //Saving
-        
-        if (waybill.getElementDateValue() != null) {
-            waybill.getElementDateValue().forEach(elementDate -> {
-                elementDate.setWaybillFormDateValueId(waybill.getId());
-                elementDateRepository.save(elementDate);
-            });
-        }
+        waybillFormRepository.findById(id).map(waybillForm -> {
+            waybillFormInstance.setFormId(waybillForm.getId());
+            waybillFormInstanceRepository.save(waybillFormInstance); // Saving
 
-        if (waybill.getElementDoubleValue() != null) {
-            waybill.getElementDoubleValue().forEach(elementDouble ->{
-                elementDouble.setWaybillFormDoubleValueId(waybill.getId());
-                elementDoubleRepository.save(elementDouble);
-            });
-        }
+            if (waybillForm.getElementString() != null) {
+                waybillForm.getElementString().forEach(elementString -> {
+                    waybillFormInstance.getElementStringValue().forEach(elementStringValue -> {
+                        //cannot rely on id because its auto generated.
+                        if(elementString.getId().equals(elementStringValue.getElementString().getId())){
+                            elementStringValue.setElementString(elementString);
+                            elementStringValue.setWaybillFormStringValueId(waybillFormInstance.getId());
+                            elementStringRepository.save(elementStringValue);
+                        }
+                    });
+                });
+            }
 
-        if (waybill.getElementStringValue() != null) {
-            waybill.getElementStringValue().forEach(elementString ->{
-                elementString.setWaybillFormStringValueId(waybill.getId());
-                elementStringRepository.save(elementString);
-            });
-        }
-        return waybill;
-    }
+            if (waybillFormInstance.getElementDateValue() != null) {
+                waybillFormInstance.getElementDateValue().forEach(elementDate -> {
+                    elementDate.setWaybillFormDateValueId(waybillFormInstance.getId());
+                    elementDateRepository.save(elementDate);
+                });
+            }
 
-	public WaybillFormInstance findWaybillById(Long id) {
-        WaybillForm waybillForm = waybillFormRepository.findWaybillFormById(id);
-        waybillForm.getElementString().forEach(elementString -> {
+            if (waybillFormInstance.getElementDoubleValue() != null) {
+                waybillFormInstance.getElementDoubleValue().forEach(elementDouble -> {
+                    elementDouble.setWaybillFormDoubleValueId(waybillFormInstance.getId());
+                    elementDoubleRepository.save(elementDouble);
+                });
+            }
+            return waybillFormInstance;
         });
-
-		return waybillFormInstanceRepository.findWaybillById(id) ;
+        return waybillFormInstance;
     }
-    
+
+    public WaybillFormInstance findWaybillById(Long id) {
+        WaybillFormInstance waybillFormInstance = waybillFormInstanceRepository.findWaybillById(id);
+        System.out.println(waybillFormInstance.toString());
+        return waybillFormInstance;
+    }
 
 }

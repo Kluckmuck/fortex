@@ -18,9 +18,9 @@ public class WaybillFormControllerInstance {
     private WaybillFormInstanceService waybillFormService;
 
 
-    @PostMapping
-    public WaybillFormInstance createNewWaybill(@RequestBody WaybillFormInstance waybillForm){
-        return waybillFormService.createNewWaybill(waybillForm);
+    @PostMapping(value = "/waybillId/{id}")
+    public WaybillFormInstance createNewWaybill(@PathVariable Long id, @RequestBody WaybillFormInstance waybillForm){
+        return waybillFormService.createNewWaybill(id, waybillForm);
     }
 
     @GetMapping(value="/{id}")

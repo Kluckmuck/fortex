@@ -21,7 +21,7 @@ import com.fortex.backend.waybillinstance.elements.ElementStringValue;
 @Data
 @ToString
 @Entity
-public class WaybillFormInstance extends WaybillForm {
+public class WaybillFormInstance {
 
 
     @Id
@@ -35,7 +35,8 @@ public class WaybillFormInstance extends WaybillForm {
     @OneToMany(mappedBy="waybillFormDateValueId")
     private Set<ElementDateValue>  elementDateValue;
 
-    @OneToMany(mappedBy="waybillFormStringValueId")
+    // @OneToMany(mappedBy="waybillFormStringValueId")
+    @Transient
     private Set<ElementStringValue> elementStringValue;
 
     @OneToMany(mappedBy="waybillFormDoubleValueId")
