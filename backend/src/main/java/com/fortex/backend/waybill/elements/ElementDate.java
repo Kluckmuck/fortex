@@ -35,7 +35,7 @@ public class ElementDate {
     @JoinColumn( referencedColumnName = "id")
     private Long waybillFormDateId;
 
-    private Date date;
+    private String date;
     private Boolean required;
     
 }

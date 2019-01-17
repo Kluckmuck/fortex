@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fortex.backend.waybill.elements.ElementDouble;
 import com.fortex.backend.waybillinstance.waybillform.WaybillFormInstance;
 
 import lombok.*;
@@ -33,4 +34,7 @@ public class ElementDoubleValue {
     @JoinColumn(referencedColumnName="id")
     private Long waybillFormDoubleValueId;
 
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
+    @JoinColumn(name = "element_double_id", nullable = true)
+    private ElementDouble elementDouble;
 }

@@ -40,7 +40,7 @@ public class WaybillFormInstanceService {
             if (waybillForm.getElementString() != null) {
                 waybillForm.getElementString().forEach(elementString -> {
                     waybillFormInstance.getElementStringValue().forEach(elementStringValue -> {
-                        //cannot rely on id because its auto generated.
+                        // Compare incoming id and id from database.
                         if(elementString.getId().equals(elementStringValue.getElementString().getId())){
                             elementStringValue.setElementString(elementString);
                             elementStringValue.setWaybillFormStringValueId(waybillFormInstance.getId());
@@ -50,17 +50,27 @@ public class WaybillFormInstanceService {
                 });
             }
 
-            if (waybillFormInstance.getElementDateValue() != null) {
-                waybillFormInstance.getElementDateValue().forEach(elementDate -> {
-                    elementDate.setWaybillFormDateValueId(waybillFormInstance.getId());
-                    elementDateRepository.save(elementDate);
-                });
-            }
+          if(waybillForm.getElementDate() != null ){
+              waybillForm.getElementDate().forEach(elementDate -> {
+                  waybillFormInstance.getElementDateValue().forEach(elementDateValue -> {
+                      if(elementDate.getId().equals(elementDateValue.getElementDate().getId())){
+                          elementDateValue.setElementDate(elementDate);
+                          elementDateValue.setWaybillFormDateValueId(waybillFormInstance.getId());
+                          elementDateRepository.save(elementDateValue);
+                      }
+                  });
+              });
+          }
 
             if (waybillFormInstance.getElementDoubleValue() != null) {
-                waybillFormInstance.getElementDoubleValue().forEach(elementDouble -> {
-                    elementDouble.setWaybillFormDoubleValueId(waybillFormInstance.getId());
-                    elementDoubleRepository.save(elementDouble);
+                waybillForm.getElementDouble().forEach(elementDouble -> {
+                    waybillFormInstance.getElementDoubleValue().forEach(elementDoubleValue -> {
+                        if(elementDouble.getId().equals(elementDoubleValue.getElementDouble().getId())){
+                            elementDoubleValue.setElementDouble(elementDouble);
+                            elementDoubleValue.setWaybillFormDoubleValueId(waybillFormInstance.getId());
+                            elementDoubleRepository.save(elementDoubleValue);
+                        }
+                    });
                 });
             }
             return waybillFormInstance;
