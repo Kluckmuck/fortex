@@ -31,6 +31,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
+import { WayBillFormComponent } from './way-bill-form/way-bill-form.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {MatSortModule} from '@angular/material/sort';
     WayBillListComponent,
     WayBillDetailComponent,
     WayBillQuickCreateComponent,
-    WayBillHistoryComponent
+    WayBillHistoryComponent,
+    WayBillFormComponent
   ],
   imports: [
     BrowserModule,

@@ -45,9 +45,8 @@ export class WayBillCreateComponent implements OnInit {
 
   getForm(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.api.getForm(id)
-     .subscribe(form => this.form = form);
   }
+  
 
   onSubmit() {
     // TODO: Use EventEmitter with form value

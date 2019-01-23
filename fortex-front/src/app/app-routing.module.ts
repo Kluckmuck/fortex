@@ -5,6 +5,7 @@ import { UserPortalComponent } from './user-portal/user-portal.component';
 import { WayBillDetailComponent } from './way-bill-detail/way-bill-detail.component';
 import { WayBillHistoryComponent } from './way-bill-history/way-bill-history.component';
 import { WayBillCreateComponent } from './way-bill-create/way-bill-create.component';
+import { WayBillFormComponent } from './way-bill-form/way-bill-form.component';
 
 const routes: Routes = [
   { path: 'login', component: LogInComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'waybill/:id', component: WayBillDetailComponent },
   { path: 'history', component: WayBillHistoryComponent },
   { path: 'create/:id', component: WayBillCreateComponent },
+  { path: 'form/:id', component: WayBillFormComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: LogInComponent }
 ];
