@@ -11,7 +11,7 @@ import { ApiService } from '../api.service';
 })
 export class WayBillFormComponent implements OnInit {
   waybillForm: WaybillForm<any>;
-  form: FormGroup;
+  formGroup: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,16 +20,21 @@ export class WayBillFormComponent implements OnInit {
 
   ngOnInit() {
     this.getForm();
-    //this.form = this.api.toFormGroup(this.waybillForm);
   }
 
   getForm(): void {
     const id = +this.route.snapshot.paramMap.get('id');
+
+    this.api.getForm(id).flatMap(data => {
+      this.waybillForm = data;
+      return this.api.toFormGroup(this.waybillForm);
+    });
+
     this.api.getForm(id)
       .subscribe(waybillForm => this.waybillForm = waybillForm);
   }
 
   get isValid() { 
-    return this.form.controls[this.waybillForm.id].valid;
+    return this.formGroup.controls[this.waybillForm.id].valid;
   }
 }

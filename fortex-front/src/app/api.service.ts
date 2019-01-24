@@ -65,6 +65,6 @@ export class ApiService {
       group[element.id] = element.required ? new FormControl(element.value || '', Validators.required)
         : new FormControl(element.value || '');
     });
-    return new FormGroup(group);
+    return new Observable<FormGroup>(group);
   }
 }

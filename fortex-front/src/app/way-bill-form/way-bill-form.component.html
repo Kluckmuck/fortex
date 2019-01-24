@@ -1,18 +1,18 @@
 <div *ngIf="form">
   <div [formGroup]="form">
-    <label [attr.for]="elementString.key">{{elementString.label}}</label>
+    <label [attr.for]="formGroup.id">{{formGroup.id}}</label>
     
-    <div [ngSwitch]="elementString.controlType">
+    <div [ngSwitch]="formGroup.controlType">
       
-      <input *ngSwitchCase="'textbox'" [formControlName]="elementString.key" [id]="elementString.key" [type]="elementString.type">
+      <input *ngSwitchCase="'textbox'" [formControlName]="formGroup.key" [id]="formGroup.key" [type]="formGroup.type">
       
-      <select [id]="elementString.key" *ngSwitchCase="'dropdown'" [formControlName]="elementString.key">
-        <option *ngFor="let opt of elementString.options" [value]="opt.key">{{opt.value}}</option>
+      <select [id]="formGroup.key" *ngSwitchCase="'dropdown'" [formControlName]="formGroup.key">
+        <option *ngFor="let opt of formGroup.options" [value]="opt.key">{{opt.value}}</option>
       </select>
       
     </div>
     
-    <div class="errorMessage" *ngIf="!isValid">{{elementString.label}} is required</div>
+    <div class="errorMessage" *ngIf="!isValid">{{formGroup.label}} is required</div>
   </div>
 </div>
 <p *ngIf="waybillForm">{{waybillForm.name}}</p>
