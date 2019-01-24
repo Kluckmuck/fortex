@@ -1,5 +1,6 @@
-<div *ngIf="form">
-  <div [formGroup]="form">
+<div *ngIf="formGroup">
+  <div [formGroup]="formGroup">
+    <!-- Change name for attributes -->
     <label [attr.for]="formGroup.id">{{formGroup.id}}</label>
     
     <div [ngSwitch]="formGroup.controlType">

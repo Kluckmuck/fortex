@@ -57,7 +57,7 @@ export class ApiService {
     return this.http.get<WaybillForm<any>>(url);
   }
 
-  toFormGroup(waybillForm: WaybillForm<any>): Observable<FormGroup> {
+  toFormGroup(waybillForm: WaybillForm<any>): FormGroup {
     let group: any = {};
     console.log(waybillForm);
 
@@ -67,6 +67,6 @@ export class ApiService {
       group[element.id] = element.required ? new FormControl(element.value || '', Validators.required)
         : new FormControl(element.value || '');
     });
-    return new Observable<FormGroup>(group);
+    return new FormGroup(group);
   }
 }

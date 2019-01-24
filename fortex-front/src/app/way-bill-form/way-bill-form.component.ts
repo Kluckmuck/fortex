@@ -25,11 +25,9 @@ export class WayBillFormComponent implements OnInit {
   getForm(): void {
     const id = +this.route.snapshot.paramMap.get('id');
 
-    this.api.getForm(id).flatMap(data => {
+    this.api.getForm(id).subscribe(data => {
       this.waybillForm = data;
-      return this.api.toFormGroup(this.waybillForm);
-    }).subscribe(data => {
-      this.formGroup = data;
+      this.formGroup = this.api.toFormGroup(data);
     });
 
     //this.api.getForm(id).subscribe(waybillForm => this.waybillForm = waybillForm);
