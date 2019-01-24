@@ -6,6 +6,6 @@ export class Form {
     public org: number,
     public name: string,
     public date: Date,
-    public elementString: ElementString[]
+    public elementStrings: ElementString[]
   ) { }
 }

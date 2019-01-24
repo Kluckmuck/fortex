@@ -9,7 +9,6 @@ import { LoginUser } from './models/LoginUser';
 import { TinyWaybill } from './models/TinyWaybill';
 import { Waybill } from './models/Waybill';
 import { TinyForm } from './models/TinyForm';
-import { Form } from './models/Form';
 import { WaybillForm } from './models/WaybillForm';
 
 
@@ -58,10 +57,13 @@ export class ApiService {
     return this.http.get<WaybillForm<any>>(url);
   }
 
-  toFormGroup(form: WaybillForm<any>) {
+  toFormGroup(waybillForm: WaybillForm<any>): Observable<FormGroup> {
     let group: any = {};
+    console.log(waybillForm);
 
-    form.elementStrings.forEach(element => {
+    
+
+    waybillForm.elementString.forEach(element => {
       group[element.id] = element.required ? new FormControl(element.value || '', Validators.required)
         : new FormControl(element.value || '');
     });

@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { WaybillForm } from '../models/WaybillForm';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
+import { WaybillForm } from '../models/WaybillForm';
 
 @Component({
   selector: 'app-way-bill-form',
@@ -28,10 +28,11 @@ export class WayBillFormComponent implements OnInit {
     this.api.getForm(id).flatMap(data => {
       this.waybillForm = data;
       return this.api.toFormGroup(this.waybillForm);
+    }).subscribe(data => {
+      this.formGroup = data;
     });
 
-    this.api.getForm(id)
-      .subscribe(waybillForm => this.waybillForm = waybillForm);
+    //this.api.getForm(id).subscribe(waybillForm => this.waybillForm = waybillForm);
   }
 
   get isValid() { 
