@@ -1,0 +1,18 @@
+<div *ngIf="element">
+  <div [formGroup]="formGroup">
+    <!-- Change name for attributes -->
+    <label [attr.for]="element.id">{{element.name}}</label>
+
+    <div [ngSwitch]="formGroup.controlType">
+
+      <input *ngSwitchCase="'textbox'" [formControlName]="formGroup.key" [id]="formGroup.key" [type]="formGroup.type">
+
+      <select [id]="formGroup.key" *ngSwitchCase="'dropdown'" [formControlName]="formGroup.key">
+        <option *ngFor="let opt of formGroup.options" [value]="opt.key">{{opt.value}}</option>
+      </select>
+
+    </div>
+
+    <div class="errorMessage" *ngIf="!isValid">{{formGroup.label}} is required</div>
+  </div>
+</div>

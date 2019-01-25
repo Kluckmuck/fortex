@@ -12,6 +12,8 @@ import { WaybillForm } from '../models/WaybillForm';
 export class WayBillFormComponent implements OnInit {
   waybillForm: WaybillForm<any>;
   formGroup: FormGroup;
+  payLoad = '';
+
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +35,7 @@ export class WayBillFormComponent implements OnInit {
     //this.api.getForm(id).subscribe(waybillForm => this.waybillForm = waybillForm);
   }
 
-  get isValid() { 
-    return this.formGroup.controls[this.waybillForm.id].valid;
+  onSubmit() {
+    this.payLoad = JSON.stringify(this.formGroup.value);
   }
 }
