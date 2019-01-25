@@ -12,7 +12,6 @@ import { LogInComponent } from './log-in/log-in.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ApiService } from './api.service';
 import { UserPortalComponent } from './user-portal/user-portal.component';
-import { WayBillCreateComponent } from './way-bill-create/way-bill-create.component';
 import { WayBillListComponent } from './way-bill-list/way-bill-list.component';
 import { WayBillDetailComponent } from './way-bill-detail/way-bill-detail.component';
 import { WayBillQuickCreateComponent } from './way-bill-quick-create/way-bill-quick-create.component';
@@ -40,7 +39,6 @@ import { FormElementComponent } from './way-bill-form/form-element/form-element.
     LogInComponent,
     NavBarComponent,
     UserPortalComponent,
-    WayBillCreateComponent,
     WayBillListComponent,
     WayBillDetailComponent,
     WayBillQuickCreateComponent,
