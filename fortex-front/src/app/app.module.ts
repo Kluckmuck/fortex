@@ -12,7 +12,6 @@ import { LogInComponent } from './log-in/log-in.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ApiService } from './api.service';
 import { UserPortalComponent } from './user-portal/user-portal.component';
-import { WayBillCreateComponent } from './way-bill-create/way-bill-create.component';
 import { WayBillListComponent } from './way-bill-list/way-bill-list.component';
 import { WayBillDetailComponent } from './way-bill-detail/way-bill-detail.component';
 import { WayBillQuickCreateComponent } from './way-bill-quick-create/way-bill-quick-create.component';
@@ -31,6 +30,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
+import { WayBillFormComponent } from './way-bill-form/way-bill-form.component';
+import { FormElementComponent } from './way-bill-form/form-element/form-element.component';
 
 @NgModule({
   declarations: [
@@ -38,11 +39,12 @@ import {MatSortModule} from '@angular/material/sort';
     LogInComponent,
     NavBarComponent,
     UserPortalComponent,
-    WayBillCreateComponent,
     WayBillListComponent,
     WayBillDetailComponent,
     WayBillQuickCreateComponent,
-    WayBillHistoryComponent
+    WayBillHistoryComponent,
+    WayBillFormComponent,
+    FormElementComponent
   ],
   imports: [
     BrowserModule,
