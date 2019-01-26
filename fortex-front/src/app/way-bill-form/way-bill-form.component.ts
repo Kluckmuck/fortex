@@ -36,6 +36,8 @@ export class WayBillFormComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.formGroup.value);
+    
     this.payLoad = JSON.stringify(this.formGroup.value);
   }
 }
