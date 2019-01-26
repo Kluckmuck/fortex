@@ -11,6 +11,7 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fortex.backend.waybill.waybillform.WaybillForm;
 import com.fortex.backend.waybillinstance.elements.ElementDateValue;
 import com.fortex.backend.waybillinstance.elements.ElementDoubleValue;
 import com.fortex.backend.waybillinstance.elements.ElementStringValue;
@@ -32,13 +33,14 @@ public class WaybillFormInstance {
     private Date date;
     private Long elementId;
 
-    @OneToMany(mappedBy="waybillFormDateValueId")
+    @Transient
     private Set<ElementDateValue>  elementDateValue;
 
-    @OneToMany(mappedBy="waybillFormStringValueId")
+    // @OneToMany(mappedBy="waybillFormStringValueId")
+    @Transient
     private Set<ElementStringValue> elementStringValue;
 
-    @OneToMany(mappedBy="waybillFormDoubleValueId")
+    @Transient
     private Set<ElementDoubleValue> elementDoubleValue;
 
 

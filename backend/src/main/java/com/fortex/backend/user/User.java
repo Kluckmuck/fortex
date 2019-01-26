@@ -32,4 +32,5 @@ public class User {
     @JoinColumn(name = "organization_id", nullable = true)
     private Organization organization;
 
+
 }

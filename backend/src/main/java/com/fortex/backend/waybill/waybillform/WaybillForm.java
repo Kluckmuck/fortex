@@ -41,7 +41,7 @@ public class WaybillForm {
     @OneToMany(mappedBy="waybillFormDoubleId")
     private Set<ElementDouble> elementDouble;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
     @JoinColumn(name = "organization_id", nullable = true)
     private Organization organization;
 

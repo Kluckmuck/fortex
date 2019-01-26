@@ -1,5 +1,7 @@
 package com.fortex.backend;
 
+import com.fortex.backend.waybillinstance.elements.ElementStringValue;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

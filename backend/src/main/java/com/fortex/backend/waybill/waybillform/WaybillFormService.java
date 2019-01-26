@@ -7,6 +7,9 @@ import com.fortex.backend.organization.OrganizationRepository;
 import com.fortex.backend.waybill.elements.ElementDateRepository;
 import com.fortex.backend.waybill.elements.ElementDoubleRepository;
 import com.fortex.backend.waybill.elements.ElementStringRepository;
+import com.fortex.backend.waybillinstance.elements.ElementDateValueRepository;
+import com.fortex.backend.waybillinstance.elements.ElementStringValue;
+import com.fortex.backend.waybillinstance.elements.ElementStringValueRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,9 +32,14 @@ public class WaybillFormService {
     @Autowired
     OrganizationRepository organizationRepository;
 
+    @Autowired
+    ElementStringValueRepository elementStringValueRepository;
+
     public WaybillForm createNewWaybillForm(Long orgId, WaybillForm waybillForm) {
-       
-        return organizationRepository.findById(orgId).map(organization ->{
+        
+        waybillFormRepository.save(waybillForm);
+
+        return organizationRepository.findById(orgId).map(organization -> {
             waybillForm.setOrganization(organization);
             if (waybillForm.getElementDate() != null) {
                 waybillForm.getElementDate().forEach(element -> {
@@ -45,24 +53,26 @@ public class WaybillFormService {
                     elementDoubleRepository.save(elementDouble);
                 });
             }
-    
+
             if (waybillForm.getElementString() != null) {
                 waybillForm.getElementString().forEach(elementString -> {
                     elementString.setWaybillFormStringId(waybillForm.getId());
                     elementStringRepository.save(elementString);
                 });
             }
-            return waybillFormRepository.save(waybillForm);
+            return waybillForm;
         }).orElseThrow(() -> new ResourceNotFoundException("error"));
     }
-
-    
 
     public List<WaybillForm> getAllWaybillForms() {
         return waybillFormRepository.findAll();
     }
 
     public WaybillForm findWaybillFormById(Long id) {
+        WaybillForm waybillform = waybillFormRepository.findWaybillFormById(id);
+
+
+
         return waybillFormRepository.findWaybillFormById(id);
     }
 

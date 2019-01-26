@@ -1,0 +1,279 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2019-01-17T17:35:07.437Z",
+	"__export_source": "insomnia.desktop.app:v6.3.2",
+	"resources": [
+		{
+			"_id": "wrk_f610e7e81a5244cdad841c1bc20d788d",
+			"created": 1546879158060,
+			"description": "",
+			"modified": 1547131480220,
+			"name": "fortex",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_923368230b2f4d3d8a7746f5c82078a7",
+			"color": null,
+			"created": 1546879158076,
+			"data": {},
+			"isPrivate": false,
+			"metaSortKey": 1546879158076,
+			"modified": 1546879158076,
+			"name": "New Environment",
+			"parentId": "wrk_f610e7e81a5244cdad841c1bc20d788d",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_dd5ced5b7b92486e97aeb2e3027466f6",
+			"cookies": [],
+			"created": 1546879158078,
+			"modified": 1546879158078,
+			"name": "Default Jar",
+			"parentId": "wrk_f610e7e81a5244cdad841c1bc20d788d",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_13fadcd8b1644ebabd198dc66c11f333",
+			"created": 1547131502829,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1547131502829,
+			"modified": 1547131502829,
+			"name": "organization",
+			"parentId": "wrk_f610e7e81a5244cdad841c1bc20d788d",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_49df334aebae49fdbbb8429c3b216057",
+			"created": 1547131508012,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1547131508012,
+			"modified": 1547131508012,
+			"name": "user",
+			"parentId": "wrk_f610e7e81a5244cdad841c1bc20d788d",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_a52b1f5b64004951a8bfe008383a391f",
+			"created": 1547131513741,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1547131513741,
+			"modified": 1547131513741,
+			"name": "waybill",
+			"parentId": "wrk_f610e7e81a5244cdad841c1bc20d788d",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_630fdb1e481d448faefe32ca9428d74c",
+			"created": 1547744045091,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1547744045091,
+			"modified": 1547744045091,
+			"name": "waybillinstance",
+			"parentId": "wrk_f610e7e81a5244cdad841c1bc20d788d",
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_56ed957cd6a3457ca20edab89789c6e2",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"companyName\": \"testföretag23\"\n}"
+			},
+			"created": 1546886125775,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_6729bd428033416d8f1a8fc6a6966243",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1546879213213,
+			"method": "POST",
+			"modified": 1547131518084,
+			"name": "org",
+			"parameters": [],
+			"parentId": "fld_13fadcd8b1644ebabd198dc66c11f333",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:8080/api/organization",
+			"_type": "request"
+		},
+		{
+			"_id": "req_3c9e4f88ffae43eb99205f12722655c3",
+			"authentication": {},
+			"body": {},
+			"created": 1547131524546,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1547131524546,
+			"method": "GET",
+			"modified": 1547131529385,
+			"name": "get all",
+			"parameters": [],
+			"parentId": "fld_13fadcd8b1644ebabd198dc66c11f333",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:8080/api/organization",
+			"_type": "request"
+		},
+		{
+			"_id": "req_a6e5ed165b804932871cdaf5543e89cb",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\"email\":\"test\",\n\"name\":\"namnet\",\n\"lastName\":\"efternamnet\",\n\"password\":\"lösenordet\"\n\t\n}\n"
+			},
+			"created": 1547131534393,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_1cedcfa726be491e91dfdb1d5b2e19d3",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1547131534393,
+			"method": "POST",
+			"modified": 1547131803806,
+			"name": "create ",
+			"parameters": [],
+			"parentId": "fld_49df334aebae49fdbbb8429c3b216057",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:8080/api/user",
+			"_type": "request"
+		},
+		{
+			"_id": "req_8b2f26ff516d4065920b3c01b04e8624",
+			"authentication": {},
+			"body": {},
+			"created": 1547131922534,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1547131529469.5,
+			"method": "PUT",
+			"modified": 1547306629691,
+			"name": "add organization",
+			"parameters": [],
+			"parentId": "fld_49df334aebae49fdbbb8429c3b216057",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:8080/api/user/orgid/1/userid/1",
+			"_type": "request"
+		},
+		{
+			"_id": "req_c4edc67a43d04b9b9419043a82e20fef",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{  \n   \"name\":\"asda 1\",\n   \"elementString\":[  \n      {  \n         \"name\":\"HELLO\"\n      },\n      {  \n         \"name\":\"GELLO\"\n      },\n      {  \n         \"name\":\"4124\"\n      }\n   ],\n\t  \"elementDate\":[  \n      {  \n         \"date\":\"Date1\"\n      },\n      {  \n         \"date\":\"Date2\"\n      },\n      {  \n         \"date\":\"Date3\"\n      }\n   ],\n\n     \"elementDouble\":[  \n      {  \n         \"valueName\":\"siffra1\"\n      },\n      {  \n         \"valueName\":\"siffrat2\"\n      },\n      {  \n         \"valueName\":\"asdasf\"\n      }\n   ]\n}"
+			},
+			"created": 1546879213263,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_6729bd428033416d8f1a8fc6a6966243",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1546879213263,
+			"method": "POST",
+			"modified": 1547746097046,
+			"name": "create waybill",
+			"parameters": [],
+			"parentId": "fld_a52b1f5b64004951a8bfe008383a391f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:8080/api/waybillform/orgid/1",
+			"_type": "request"
+		},
+		{
+			"_id": "req_fd2f77f0f3db426c80c6af5ddf6dd14e",
+			"authentication": {},
+			"body": {},
+			"created": 1547306754609,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1546879213238,
+			"method": "GET",
+			"modified": 1547744079102,
+			"name": "find waybill by id",
+			"parameters": [],
+			"parentId": "fld_a52b1f5b64004951a8bfe008383a391f",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:8080/api/waybillform/1",
+			"_type": "request"
+		},
+		{
+			"_id": "req_6f087ea463724a1bbca1fa0c29fa7f86",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{  \n   \"employeeId\":1,\n   \"elementStringValue\":[  \n      {  \n         \"value\":\"ello\",\n         \"elementString\":{  \n            \"id\":1\n         }\n      },\n      {  \n         \"value\":\"ello2\",\n         \"elementString\":{  \n            \"id\":2\n         }\n      },\n      {  \n         \"value\":\"ello3\",\n         \"elementString\":{  \n            \"id\":3\n         }\n      }\n   ],\n\t\"elementDateValue\":[  \n      {  \n         \"value\":\"1999-01-01\",\n         \"elementDate\":{  \n            \"id\":1\n         }\n      },\n      {  \n         \"value\":\"1999-01-01\",\n         \"elementDate\":{  \n            \"id\":2\n         }\n      },\n      {  \n         \"value\":\"1999-01-01\",\n         \"elementDate\":{  \n            \"id\":3\n         }\n      }\n   ],\n\t\t\"elementDoubleValue\":[  \n      {  \n         \"value\":2.3,\n         \"elementDouble\":{  \n            \"id\":1\n         }\n      },\n      {  \n         \"value\":4.4,\n         \"elementDouble\":{  \n            \"id\":2\n         }\n      },\n      {  \n         \"value\":24.4,\n         \"elementDouble\":{  \n            \"id\":3\n         }\n      }\n   ]\n\t\n\t\n\t\n}"
+			},
+			"created": 1547744050279,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_6729bd428033416d8f1a8fc6a6966243",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1546879213250.5,
+			"method": "POST",
+			"modified": 1547746420596,
+			"name": "create waybill instance",
+			"parameters": [],
+			"parentId": "fld_630fdb1e481d448faefe32ca9428d74c",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://localhost:8080/api/waybill/waybillId/1",
+			"_type": "request"
+		}
+	]
+}
