@@ -30,21 +30,18 @@ public class WaybillFormInstanceService {
     WaybillFormRepository waybillFormRepository;
 
     public WaybillFormInstance createNewWaybill(Long id, WaybillFormInstance waybillFormInstance) {
-        /**
-         * Add each element and sets waybillform id. TODO: solve ManyToOne annotation
-         */
+        
         waybillFormRepository.findById(id).map(waybillForm -> {
-            waybillFormInstance.setFormId(waybillForm.getId());
-            waybillFormInstanceRepository.save(waybillFormInstance); // Saving
+            waybillFormInstance.setFormId(waybillForm.getId()); // Set the correct id for the instance.
+            waybillFormInstanceRepository.save(waybillFormInstance); // Saving to get initial id.
 
-            if (waybillForm.getElementString() != null) {
-                waybillForm.getElementString().forEach(elementString -> {
-                    waybillFormInstance.getElementStringValue().forEach(elementStringValue -> {
-                        // Compare incoming id and id from database.
-                        if(elementString.getId().equals(elementStringValue.getElementString().getId())){
-                            elementStringValue.setElementString(elementString);
+            if (waybillForm.getElementString() != null) {// Check if there is element present
+                waybillForm.getElementString().forEach(elementString -> { // loop throgh database elements 
+                    waybillFormInstance.getElementStringValue().forEach(elementStringValue -> { // loop throgh incoming elements
+                        if(elementString.getId().equals(elementStringValue.getElementString().getId())){// Compare incoming id and id from database.
+                            elementStringValue.setElementString(elementString); 
                             elementStringValue.setWaybillFormStringValueId(waybillFormInstance.getId());
-                            elementStringRepository.save(elementStringValue);
+                            elementStringRepository.save(elementStringValue); // Save the element value.
                         }
                     });
                 });

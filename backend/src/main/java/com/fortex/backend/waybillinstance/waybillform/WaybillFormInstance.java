@@ -32,14 +32,14 @@ public class WaybillFormInstance {
     private Long formId;
     private Date date;
 
-    @OneToMany(mappedBy="waybillFormDateValueId")
+    @Transient
     private Set<ElementDateValue>  elementDateValue;
 
     // @OneToMany(mappedBy="waybillFormStringValueId")
     @Transient
     private Set<ElementStringValue> elementStringValue;
 
-    @OneToMany(mappedBy="waybillFormDoubleValueId")
+    @Transient
     private Set<ElementDoubleValue> elementDoubleValue;
 
 
