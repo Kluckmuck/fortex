@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 import { WaybillForm } from '../models/WaybillForm';
+import { WaybillFormInstance } from '../models/instance/WaybillInstance';
 
 @Component({
   selector: 'app-way-bill-form',
@@ -12,8 +13,8 @@ import { WaybillForm } from '../models/WaybillForm';
 export class WayBillFormComponent implements OnInit {
   waybillForm: WaybillForm<any>;
   formGroup: FormGroup;
+  waybillInstrance: WaybillFormInstance;
   payLoad = '';
-
 
   constructor(
     private route: ActivatedRoute,
@@ -36,8 +37,8 @@ export class WayBillFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.formGroup.value);
-    
     this.payLoad = JSON.stringify(this.formGroup.value);
+    console.log(JSON.stringify(this.waybillForm));
+    console.log(JSON.stringify(this.api.toWaybillInstance(this.waybillForm)));
   }
 }

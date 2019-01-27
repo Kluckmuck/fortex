@@ -10,6 +10,7 @@ import { TinyWaybill } from './models/TinyWaybill';
 import { Waybill } from './models/Waybill';
 import { TinyForm } from './models/TinyForm';
 import { WaybillForm } from './models/WaybillForm';
+import { WaybillFormInstance } from './models/instance/WaybillInstance';
 
 
 const API_URL = environment.apiUrl;
@@ -57,6 +58,7 @@ export class ApiService {
     return this.http.get<WaybillForm<any>>(url);
   }
 
+  //API: Create a FormGroup from a WaybillForm
   toFormGroup(waybillForm: WaybillForm<any>): FormGroup {
     let group: any = {};
     console.log(waybillForm);
@@ -69,4 +71,10 @@ export class ApiService {
     });
     return new FormGroup(group);
   }
+
+  //API: Create a WaybillINSTANCE from a WaybillForm
+  toWaybillInstance(waybillForm: WaybillForm<any>): WaybillFormInstance {
+    return new WaybillFormInstance(waybillForm);
+  }
+
 }
