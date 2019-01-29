@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import 'rxjs/add/operator/map';
 
-import { environment } from '../environments/environment';
+import { environment} from '../environments/environment';
 import { LoginUser } from './models/LoginUser';
 import { TinyWaybill } from './models/TinyWaybill';
 import { Waybill } from './models/Waybill';
@@ -14,6 +14,7 @@ import { WaybillForm } from './models/WaybillForm';
 
 const API_URL = environment.apiUrl;
 
+// const API_URL_back = environment_backend.apiUrl;
 @Injectable({
   providedIn: 'root'
 })
@@ -23,8 +24,10 @@ export class ApiService {
   ) { }
 
   //API: POST User login
-  public login(user: LoginUser) {
-    console.log(user.userName + user.password);
+  login(user:LoginUser){
+    const url =  `${API_URL}/login/`;
+    console.log(user)
+    return this.http.post(url,user.userName + user.password)
   }
 
   //API: GET Waybill
@@ -61,7 +64,7 @@ export class ApiService {
     let group: any = {};
     console.log(waybillForm);
 
-    
+
 
     waybillForm.elementString.forEach(element => {
       group[element.id] = element.required ? new FormControl(element.value || '', Validators.required)

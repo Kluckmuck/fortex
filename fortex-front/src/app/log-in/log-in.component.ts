@@ -18,7 +18,7 @@ export class LogInComponent {
   user = new LoginUser('', '');
 
   login() {
-    this.router.navigate(['/user-portal']);
+    // this.router.navigate(['/user-portal']);
     return this.api.login(this.user);
   }
 }
