@@ -11,7 +11,14 @@ import { Waybill } from './models/Waybill';
 import { TinyForm } from './models/TinyForm';
 import { WaybillForm } from './models/WaybillForm';
 
+import { HttpHeaders } from '@angular/common/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 const API_URL = environment.apiUrl;
 
 // const API_URL_back = environment_backend.apiUrl;
@@ -24,10 +31,10 @@ export class ApiService {
   ) { }
 
   //API: POST User login
-  login(user:LoginUser){
-    const url =  `${API_URL}/login/`;
+  login(user:LoginUser): Observable<LoginUser>{
+    const url =  `${API_URL}/login`;
     console.log(user)
-    return this.http.post(url,user.userName + user.password)
+    return this.http.post<LoginUser>(url,user.userName + user.password, httpOptions)
   }
 
   //API: GET Waybill
