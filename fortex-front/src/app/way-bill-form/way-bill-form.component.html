@@ -1,0 +1,18 @@
+<div *ngIf="formGroup">
+  <form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+
+    <div *ngFor="let element of waybillForm.elementString" class="formGroup-row">
+      <app-form-element [element]="element" [formGroup]="formGroup"></app-form-element>
+    </div>
+
+    <div class="formGroup-row">
+      <button type="submit" [disabled]="!formGroup.valid">Save</button>
+      <button routerLink="/user-portal" routerLinkActive="active">Back</button>
+
+    </div>
+  </form>
+
+  <div *ngIf="payLoad" class="formGroup-row">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+</div>

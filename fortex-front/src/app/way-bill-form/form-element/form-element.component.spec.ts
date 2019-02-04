@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WayBillCreateComponent } from './way-bill-create.component';
+import { FormElementComponent } from './form-element.component';
 
-describe('WayBillCreateComponent', () => {
-  let component: WayBillCreateComponent;
-  let fixture: ComponentFixture<WayBillCreateComponent>;
+describe('FormElementComponent', () => {
+  let component: FormElementComponent;
+  let fixture: ComponentFixture<FormElementComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WayBillCreateComponent ]
+      declarations: [ FormElementComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WayBillCreateComponent);
+    fixture = TestBed.createComponent(FormElementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

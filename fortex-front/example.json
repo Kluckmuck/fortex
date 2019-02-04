@@ -1,29 +1,64 @@
+//FORM
 {
-  "id": 1,
-  "name": "Betong",
-  "owner": 27,
-  "elements": [
-    { "name": "Adress", "type": "string", "value": "Vasagatan 27" },
-    { "name": "Price", "type": "int", "value": "5000" },
-    { "name": "Leverantörsadress", "type": "string", "value": "Skånegatan 17" },
-    { "name": "Storlek", "type": "string", "value": "Dubbel" }
+  "date": "2018-03-06",
+  "org": "1",
+  "name": "Test form!",
+  "elementString": [
+    {
+      "id": "1",
+      "value": "Vasagatan 27"
+    },
+    {
+      "id": "2",
+      "value": "Skånegatan 17"
+    },
+    {
+      "id": "3",
+      "value": "Dubbel"
+    }
+  ],
+  "elementDate": [
+    {
+      "id": "1",
+      "value": "2018-03-06"
+    }
+  ],
+  "elementDouble": [
+    {
+      "id": "1",
+      "value": "2.00"
+    }
   ]
 }
-
+//Waybill
 {
-  "id": 1,
-  "name": "Betong",
-  "owner": 27,
-  "date": "DATE",
-  "elements_string": [
-    { "name": "Adress", "value": "Vasagatan 27" },
-    { "name": "Leverantörsadress", "value": "Skånegatan 17" },
-    { "name": "Storlek", "value": "Dubbel" }
+  "employeeId": 1,
+  "formId": 1,
+  "date": "2018-03-06",
+  "elementStringValue": [
+    {
+      "id": "1",
+      "value": "Vasagatan 27"
+    },
+    {
+      "id": "2",
+      "value": "Skånegatan 17"
+    },
+    {
+      "id": "3",
+      "value": "Dubbel"
+    }
   ],
-  "elements_int": [
-    { "name": "Price", "value": "5000" },
+  "elementDateValue": [
+    {
+      "id": "1",
+      "value": "2018-03-06"
+    }
   ],
-  "elements_date": [
-    { "name": "Delivered", "value": "DATE   " },
+  "elementDoubleValue": [
+    {
+      "id": "1",
+      "value": "2.00"
+    }
   ]
 }

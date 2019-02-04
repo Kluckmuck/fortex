@@ -6,9 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
-import com.fortex.backend.waybill.waybillform.WaybillForm;
+import com.fortex.backend.waybillinstance.elements.ElementStringValue;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,4 +37,5 @@ public class ElementString {
 
     @JoinColumn(referencedColumnName="id")
     private Long waybillFormStringId;
+
 }

@@ -57,5 +57,9 @@ public class UserController {
         return new ResponseEntity<>(userService.findUserByEmail(email), HttpStatus.OK);
     }
 
+    @PutMapping("/orgid/{organizationId}/userid/{userId}")
+    public User addOrganization(@PathVariable Long organizationId,@PathVariable Long userId){
+        return userService.addOrganization(organizationId, userId);
 
+    }
 }

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import static java.util.Collections.emptyList;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -28,11 +27,11 @@ public class UserServiceImpl implements UserDetailsService{
    //TODO refaktorera user eller fixa user i spring details. Kanske går att överskrida.
    @Override
    public UserDetails loadUserByUsername(String email){
-       Optional<User> user = userRepository.findUserByEmail(email);
+        User user = userRepository.findUserByEmail(email);
        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-       for (Role role : user.get().getRoles()){
+       for (Role role : user.getRoles()){
            grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
        }
-       return new org.springframework.security.core.userdetails.User(user.get().getEmail(),user.get().getPassword(), grantedAuthorities);
+       return new org.springframework.security.core.userdetails.User(user.getEmail(),user.getPassword(), grantedAuthorities);
    }
 }

@@ -21,6 +21,6 @@ export class LogInComponent {
 
   login() {
     // this.router.navigate(['/user-portal']);
-    return this.api.postLogin(this.user).subscribe(user => this.users);
+    return this.api.login(this.user);
   }
 }

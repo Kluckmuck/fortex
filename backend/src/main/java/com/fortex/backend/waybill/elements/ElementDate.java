@@ -6,9 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import com.fortex.backend.waybill.waybillform.WaybillForm;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,7 +35,7 @@ public class ElementDate {
     @JoinColumn( referencedColumnName = "id")
     private Long waybillFormDateId;
 
-    private Date date;
+    private String date;
     private Boolean required;
     
 }
