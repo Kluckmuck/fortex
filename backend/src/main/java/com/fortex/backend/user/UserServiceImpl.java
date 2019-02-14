@@ -1,24 +1,40 @@
 package com.fortex.backend.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 
 @Service
-public class UserServiceImpl {
+public class UserServiceImpl  implements UserDetailsService{
 
-//    private final UserRepository userRepository;
-//
-//    @Autowired
-//    public UserServiceImpl(UserRepository userRepository) {
-//        this.userRepository = userRepository;
-//    }
-//
-//    //TODO refaktorera user eller fixa user i spring details. Kanske går att överskrida.
-//    @Override
-//    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException{
-//        Uzer loginUser = userRepository.findUserByEmail(email);
-//
-//
-//        return new User(loginUser.getEmail(), loginUser.getPassword(),emptyList());
-//    }
+
+    private final UserRepository userRepository;
+
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
+    
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        final User user = userRepository.findUserByEmail(email);
+
+        if (user == null) {
+            throw new UsernameNotFoundException("User '" + email + "' not found");
+        }
+
+        return org.springframework.security.core.userdetails.User//
+                .withUsername(email)//
+                .password(user.getPassword())//
+                .authorities(user.getRoles())//
+                .accountExpired(false)//
+                .accountLocked(false)//
+                .credentialsExpired(false)//
+                .disabled(false)//
+                .build();
+    }
+
 }

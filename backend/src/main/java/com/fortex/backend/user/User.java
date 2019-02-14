@@ -2,9 +2,12 @@ package com.fortex.backend.user;
 
 import lombok.*;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 import com.fortex.backend.organization.Organization;
+import com.fortex.backend.user.role.Role;
 
 @Getter
 @Setter
@@ -25,6 +28,9 @@ public class User {
     private String name;
     private String lastName;
     private String password;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    List<Role> roles;
   
     // An organization can have many employees. TODO: EAGER might become a
     // problem due to its fast loading. 
