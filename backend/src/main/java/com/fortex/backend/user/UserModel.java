@@ -1,6 +1,10 @@
 package com.fortex.backend.user;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.fortex.backend.organization.Organization;
+import com.fortex.backend.security.role.Role;
 
 import lombok.*;
 
@@ -32,6 +36,8 @@ public class UserModel {
     private String lastName;
     private String password;
     private Organization organization;
+    private List<Role> roles = new ArrayList<>();
+
 
 
 }

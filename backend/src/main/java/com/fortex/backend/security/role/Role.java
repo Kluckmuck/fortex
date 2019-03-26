@@ -1,24 +1,13 @@
 package com.fortex.backend.security.role;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-import org.hibernate.validator.constraints.EAN;
+import org.springframework.security.core.GrantedAuthority;
 
-import lombok.Data;
+public enum Role implements GrantedAuthority {
+    ROLE_NATIONALMANAGER, ROLE_COORDINATOR, ROLE_INVOICING, ROLE_BUSINESSCONTROLLER, ROLE_ACCOUNTMANAGER;
 
-/**
- * Role
- */
-@Entity
-@Data
-public class Role {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    public String getAuthority() {
+        return name();
+    }
 
-    private String name;
-    
 }

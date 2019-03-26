@@ -3,6 +3,9 @@ package com.fortex.backend.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,6 +14,7 @@ import java.util.Optional;
 
 import com.fortex.backend.exceptions.ResourceNotFoundException;
 import com.fortex.backend.organization.OrganizationRepository;
+import com.fortex.backend.security.JwtTokenProvider;
 
 @Service
 public class UserService {
@@ -18,15 +22,32 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    private final BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+
+    @Autowired
+    private JwtTokenProvider jwtTokenProvider;
+
+
     @Autowired
     private OrganizationRepository organizationRepository;
+
+
+    @Autowired
+    public UserService(BCryptPasswordEncoder bcCryptPasswordEncoder){
+        this.passwordEncoder = bcCryptPasswordEncoder;
+    }
+
 
     public UserModel createUser(UserModel userModel) {
         User user = new User();
         user.setEmail(userModel.getEmail());
         user.setLastName(userModel.getLastName());
         user.setName(userModel.getName());
-        user.setPassword(userModel.getPassword());
+        user.setPassword(passwordEncoder.encode(userModel.getPassword()));
         return new UserModel(userRepository.save(user));
     }
 
@@ -49,16 +70,12 @@ public class UserService {
      * { "id":1, "email": "Betonsg", "password":"test" }
      * 
      */
-    public ResponseEntity<UserModel> loginUser(UserModel userModel) {
-        try{
-            User user = userRepository.findUserByEmail(userModel.getEmail());
-            if (user.getPassword().equals(userModel.getPassword())) {
-                return new ResponseEntity<UserModel>(new UserModel(user), HttpStatus.OK);
-            } else {
-                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-            }
-        }catch(NullPointerException e){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public String login(String email, String password) throws Exception {
+        try {
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
+            return jwtTokenProvider.createToken(email, userRepository.findUserByEmail(email).getRoles());
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
         }
     }
 
@@ -78,7 +95,7 @@ public class UserService {
         user.setEmail(userModel.getEmail());
         user.setLastName(userModel.getLastName());
         user.setName(userModel.getName());
-        user.setPassword(userModel.getPassword());
+        user.setPassword(passwordEncoder.encode(userModel.getPassword()));
         return new UserModel(userRepository.save(user));
     }
 
